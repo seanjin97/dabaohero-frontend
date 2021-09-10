@@ -2,9 +2,11 @@
   <c-box>
     <c-box>private home page</c-box>
     <hero />
-    <c-button v-if="this.$auth.loggedIn" @click="getToken">Get Token</c-button>
-    <c-box v-if="this.$auth.loggedIn">{{ 'Access token: ' + token }}</c-box>
-    <c-box v-if="this.$auth.loggedIn">{{
+    <c-button v-show="this.$auth.loggedIn" @click="getToken"
+      >Get Token</c-button
+    >
+    <c-box v-show="this.$auth.loggedIn">{{ 'Access token: ' + token }}</c-box>
+    <c-box v-show="this.$auth.loggedIn">{{
       'Refresh token: ' + refreshToken
     }}</c-box>
   </c-box>
