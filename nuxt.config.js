@@ -68,7 +68,6 @@ export default {
       auth0: {
         domain: 'dev-ioy4jp8t.us.auth0.com',
         clientId: 'tDUrwZGCh4QH3fihfkK1dCcKarXLqlhd',
-        logoutRedirectUri: 'http://localhost:3000',
         scope: ['openid', 'profile', 'email', 'offline_access'],
         responseType: 'code',
         grantType: 'authorization_code',
