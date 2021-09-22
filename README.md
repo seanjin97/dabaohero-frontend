@@ -1,13 +1,13 @@
 # dabaohero-frontend
 
-## Download .env file from [GDrive](https://drive.google.com/drive/u/0/folders/1XdAm-bkzl_SXWvedYOKiOnWbHcKH4qWc) and store it in project root directory.
+## Download `.env` file from [GDrive](https://drive.google.com/drive/u/0/folders/1XdAm-bkzl_SXWvedYOKiOnWbHcKH4qWc) and store it in project root directory.
 
 ---
 
 ## Build Setup
 
 ```bash
-# install dependencies
+# install dependencies (only needs to be done once and whenever new dependencies are added)
 $ npm install
 
 # serve with hot reload at localhost:3000
