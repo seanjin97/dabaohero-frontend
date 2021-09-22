@@ -1,6 +1,7 @@
 <template>
   <c-box>
     <c-box>private home page</c-box>
+    <c-box v-show="this.$auth.loggedIn">Hello user "{{ username }}"</c-box>
     <hero />
     <c-button v-show="this.$auth.loggedIn" @click="getToken"
       >Get Token</c-button
@@ -23,6 +24,7 @@ export default {
     return {
       token: '',
       refreshToken: '',
+      username: '',
     };
   },
   methods: {
@@ -32,6 +34,9 @@ export default {
       this.token = await token;
       this.refreshToken = await refreshToken;
     },
+  },
+  async fetch() {
+    this.username = await this.$auth.$storage.getUniversal('username');
   },
 };
 </script>

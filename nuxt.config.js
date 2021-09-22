@@ -1,3 +1,4 @@
+// import IO options
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -40,6 +41,7 @@ export default {
     '@chakra-ui/nuxt',
     '@nuxtjs/emotion',
     '@nuxtjs/auth-next',
+    'nuxt-socket-io',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -66,12 +68,13 @@ export default {
   auth: {
     strategies: {
       auth0: {
-        domain: 'dev-ioy4jp8t.us.auth0.com',
-        clientId: 'tDUrwZGCh4QH3fihfkK1dCcKarXLqlhd',
+        domain: process.env.AUTH_DOMAIN,
+        clientId: process.env.CLIENT_AUTH_CLIENT_ID,
         scope: ['openid', 'profile', 'email', 'offline_access'],
         responseType: 'code',
         grantType: 'authorization_code',
         codeChallengeMethod: 'S256',
+        audience: 'dabaohero-backend',
       },
     },
     redirect: {
@@ -79,8 +82,20 @@ export default {
       callback: '/home',
       home: 'home',
     },
+    plugins: [
+      '~/plugins/username.js',
+    ],
   },
   router: {
     middleware: ['auth'],
   },
+  io: {
+    sockets: [{
+      name: 'main',
+      url: process.env.SOCKET_URL,
+    }],
+  },
+  serverMiddleware: [
+    '~/api/management',
+  ],
 };

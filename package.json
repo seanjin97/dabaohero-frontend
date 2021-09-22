@@ -15,9 +15,13 @@
     "@nuxtjs/auth-next": "5.0.0-1624817847.21691f1",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/emotion": "^0.1.0",
+    "axios": "^0.21.4",
     "core-js": "^3.15.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "lodash": "^4.17.21",
-    "nuxt": "^2.15.7"
+    "nuxt": "^2.15.7",
+    "nuxt-socket-io": "^1.1.23"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
