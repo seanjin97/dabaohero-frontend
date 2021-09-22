@@ -1,5 +1,9 @@
 # dabaohero-frontend
 
+## Download .env file from [GDrive](https://drive.google.com/drive/u/0/folders/1XdAm-bkzl_SXWvedYOKiOnWbHcKH4qWc) and store it in project root directory.
+
+---
+
 ## Build Setup
 
 ```bash
