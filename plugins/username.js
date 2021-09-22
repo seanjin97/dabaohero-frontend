@@ -6,7 +6,7 @@ export default async ({ app: { $auth, $axios } }) => {
   const username = $auth.$storage.getUniversal('username');
   if (!username) {
     try {
-      const { data } = await $axios.post('/api/management', { email });
+      const { data } = await $axios.post(`${process.env.BASE_URL}/api/management`, { email });
       $auth.$storage.setUniversal('username', data.username, false);
     } catch (err) {
       console.log(err);
