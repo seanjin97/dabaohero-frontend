@@ -90,11 +90,7 @@ export default {
   router: {
     middleware: ['auth'],
   },
-  serverMiddleware: [
-    {
-      path: '/api/management', handler: '~/api/index.js',
-    },
-  ],
+  serverMiddleware: ['~/api'],
   firebase: {
     config: {
       apiKey: process.env.FIREBASE_API_KEY,
