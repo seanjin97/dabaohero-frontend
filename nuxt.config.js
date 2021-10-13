@@ -23,6 +23,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/axios',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -46,7 +47,6 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseUrl: process.env.BASE_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -84,9 +84,7 @@ export default {
       callback: '/home',
       home: 'home',
     },
-    plugins: [
-      '~/plugins/username.js',
-    ],
+    plugins: ['~/plugins/auth.js'],
   },
   router: {
     middleware: ['auth'],
