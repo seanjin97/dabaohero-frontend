@@ -1,10 +1,14 @@
 # dabaohero-frontend
 
-## Download `.env` file from [GDrive](https://drive.google.com/drive/u/0/folders/1XdAm-bkzl_SXWvedYOKiOnWbHcKH4qWc) and store it in project root directory.
-
 ---
 
 ## Build Setup
+
+1. ### Download `.env` file from [GDrive](https://drive.google.com/drive/u/0/folders/1XdAm-bkzl_SXWvedYOKiOnWbHcKH4qWc) and store it in project root directory.
+
+2. Startup dabaohero-backend server
+
+3. Follow steps below
 
 ```bash
 # install dependencies (only needs to be done once and whenever new dependencies are added)
@@ -12,20 +16,13 @@ $ npm install
 
 # serve with hot reload at localhost:3000
 $ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
 ```
-
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
 ## Deployed site
 
 [dabaohero-frontend.vercel.app/](https://dabaohero-frontend.vercel.app/)
+
+For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
 ## Special Directories
 
