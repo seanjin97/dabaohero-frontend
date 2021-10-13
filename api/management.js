@@ -39,7 +39,4 @@ app.post('/', async (req, res, next) => {
   }
 });
 
-export default {
-  path: '/api/management',
-  handler: app,
-};
+module.exports = app;

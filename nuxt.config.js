@@ -46,7 +46,6 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.BASE_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -92,7 +91,9 @@ export default {
     middleware: ['auth'],
   },
   serverMiddleware: [
-    '~/api/management',
+    {
+      path: '/api/management', handler: '~/api/management.js',
+    },
   ],
   firebase: {
     config: {
