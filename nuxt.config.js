@@ -92,7 +92,7 @@ export default {
   },
   serverMiddleware: [
     {
-      path: '/api/management', handler: '~/api/management.js',
+      path: '/api/management', handler: '~/api/index.js',
     },
   ],
   firebase: {
