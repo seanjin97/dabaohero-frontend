@@ -1,4 +1,6 @@
-export default async ({ app: { $auth, $axios } }) => {
+import axios from 'axios';
+
+export default async ({ app: { $auth } }) => {
   if (!$auth.loggedIn) {
     return;
   }
@@ -6,7 +8,7 @@ export default async ({ app: { $auth, $axios } }) => {
   const username = $auth.$storage.getUniversal('username');
   if (!username) {
     try {
-      const { data } = await $axios.post('/api/management', { email });
+      const { data } = await axios.post('/api/management', { email });
       $auth.$storage.setUniversal('username', data.username, false);
     } catch (err) {
       console.log(err);
