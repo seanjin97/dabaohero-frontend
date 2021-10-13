@@ -20,7 +20,7 @@ $ npm run dev
 
 ## Deployed site
 
-[dabaohero-frontend.vercel.app/](https://dabaohero-frontend.vercel.app/)
+[dabaohero-frontend.vercel.app/](https://dabaohero-frontend.herokuapp.com/)
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
