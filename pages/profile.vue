@@ -1,7 +1,14 @@
 <template>
-  <c-box>profile page</c-box>
+  <profile />
 </template>
 
 <script>
-export default {};
+
+import profile from '@/components/public/profile/profile.vue';
+
+export default {
+  components: {
+    profile,
+  },
+};
 </script>
