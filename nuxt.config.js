@@ -20,7 +20,9 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
-
+  env: {
+    BACKEND_URL: process.env.BACKEND_URL,
+  },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/axios',
@@ -40,6 +42,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@chakra-ui/nuxt',
+    'bootstrap-vue/nuxt',
     '@nuxtjs/emotion',
     '@nuxtjs/auth-next',
     '@nuxtjs/firebase',

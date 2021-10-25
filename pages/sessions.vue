@@ -3,11 +3,18 @@
     <c-box>sessions page</c-box>
     <c-box>Hello {{ username }}</c-box>
     <c-button @click="joinChat">Join Chat</c-button>
+    <Chat />
   </c-box>
 </template>
 
 <script>
+import Chat from '@/components/private/sessions/Chat.vue';
+
 export default {
+  props: ['dabao'],
+  components: {
+    Chat,
+  },
   methods: {
     async joinChat() {
       const messageRef = this.$fire.database.ref('test');
