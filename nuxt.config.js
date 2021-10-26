@@ -15,6 +15,9 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
+    script: [
+      { src: 'https://kit.fontawesome.com/1d06bc2a38.js', crossorigin: 'anonymous' },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
