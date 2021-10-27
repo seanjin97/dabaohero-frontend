@@ -1,7 +1,8 @@
 <template>
   <c-box>
     <c-box ml="5" mt="5" v-show="this.$auth.loggedIn">Hello user "{{ username }}"</c-box>
-    <hero :dabaoer="user" v-on:change="getField" @getPostal="getField"/>
+    <hero :leecher="user" v-on:change="getField" @getPostal="getField"
+    v-on:click="getKey" @joinSession="getKey"/>
     <c-button v-show="this.$auth.loggedIn" @click="getToken">
       Get Token
     </c-button>
@@ -29,8 +30,10 @@ export default {
       data: [],
       user: '',
       field: '',
+      key: '',
     };
   },
+
   methods: {
     async getToken() {
       const token = await this.$auth.strategy.token.get();
@@ -44,7 +47,7 @@ export default {
       this.fetching();
     },
     async fetching() {
-      const url = `${process.env.BACKEND_URL}/session/search?postal_code=${this.field}`;
+      const url = `${process.env.BACKEND_URL}/session/search?username=${this.username}&postal_code=${this.field}`;
       const token = await this.$auth.strategy.token.get();
 
       const data = await this.$axios.$get(
@@ -54,22 +57,40 @@ export default {
         },
       );
       this.user = data;
-      console.log(this.user);
+    },
+
+    getKey(x) {
+      this.key = x;
+      this.fetchSession();
+    },
+    async fetchSession() {
+      const url = `${process.env.BACKEND_URL}/session/join`;
+      // console.log(url);
+      // const token = await this.$auth.strategy.token.get();
+
+      const data = await this.$axios.$post(
+        url, {
+          session_code: this.key,
+          username: this.username,
+        },
+
+      );
+      this.user = data;
     },
   },
-  // async fetch() {
-  //   this.username = await this.$auth.$storage.getUniversal('username');
-  //   const token = await this.$auth.strategy.token.get();
 
-  //   const data = await this.$axios.$get(
-  //     // url,
-  //     `${process.env.BACKEND_URL}/session/search?postal_code=519940`,
-  //     {
-  //       headers: { Authorisation: token },
-  //     },
-  //   );
-  //   this.user = data;
-  //   console.log(this.user);
-  // },
+  async fetch() {
+    this.username = await this.$auth.$storage.getUniversal('username');
+    const token = await this.$auth.strategy.token.get();
+
+    const data = await this.$axios.$get(
+      // url,
+      `${process.env.BACKEND_URL}/session/search?postal_code=519940`,
+      {
+        headers: { Authorisation: token },
+      },
+    );
+    this.user = data;
+  },
 };
 </script>

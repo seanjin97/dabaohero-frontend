@@ -22,16 +22,18 @@
       margin="5"
       text-align="center"
     >
-    <!-- <form action= "/get.php">/form> -->
+
       <c-box maxW="sm" border-width="1px" rounded="lg"
-      v-for="(dabao, i) of dabaoer"
+      v-for="(leech, i) of leecher"
       v-bind:key="i">
         <c-image
           :src="require('@/assets/Image1.jpg')"
           :alt="property.imageAlt"
         />
-        <c-link href="sessions" v-bind:value="dabao.key" is-external> Join Session </c-link>
-        <c-text>{{dabao.key}}</c-text>
+        <c-button v-on:click="callSession(leech.key)">
+          <c-link href="sessions">Join Session</c-link>
+        </c-button>
+        <c-text>{{leech.key}}</c-text>
       </c-box>
     </c-simple-grid>
   </c-box>
@@ -40,7 +42,7 @@
 <script>
 export default {
   name: 'Hero',
-  props: ['dabaoer'],
+  props: ['leecher'],
   data() {
     return {
       user: [],
@@ -55,6 +57,9 @@ export default {
       if (x.length === 6) {
         this.$emit('getPostal', x);
       }
+    },
+    callSession(x) {
+      this.$emit('joinSession', x);
     },
   },
 };

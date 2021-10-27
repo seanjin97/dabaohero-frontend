@@ -1,19 +1,23 @@
 <template>
   <c-box>
-    <c-box>sessions page</c-box>
     <c-box>Hello {{ username }}</c-box>
     <c-button @click="joinChat">Join Chat</c-button>
-    <Chat />
+    <chat :leecher="user"/>
   </c-box>
 </template>
 
 <script>
-import Chat from '@/components/private/sessions/Chat.vue';
+import chat from '@/components/private/sessions/Chat.vue';
 
 export default {
-  props: ['dabao'],
   components: {
-    Chat,
+    chat,
+  },
+  data() {
+    return {
+      username: '',
+      user: '',
+    };
   },
   methods: {
     async joinChat() {
@@ -29,15 +33,21 @@ export default {
       }
     },
   },
-  data() {
-    return {
-      username: '',
-    };
-  },
   async fetch() {
     this.username = await this.$auth.$storage.getUniversal('username');
+    const token = await this.$auth.strategy.token.get();
 
+    const data = await this.$axios.$get(
+      // url,
+      `${process.env.BACKEND_URL}/user/sessions/${this.username}`,
+      {
+        headers: { Authorisation: token },
+      },
+    );
+
+    this.user = data;
     const messsageRef = this.$fire.database.ref('channels');
+    console.log(this.user);
     console.log(messsageRef);
     const test = await fetch(`${messsageRef.toString()}.json`);
     console.log(test);

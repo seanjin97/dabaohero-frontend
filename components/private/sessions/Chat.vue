@@ -69,9 +69,12 @@
 
 <script>
 export default {
+  name: 'chat',
+  props: ['leecher'],
   data() {
     return {
       property: {
+        user: [],
         num: 1,
       },
       layout: '',
