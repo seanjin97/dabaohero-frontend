@@ -1,35 +1,47 @@
 <template>
   <c-box>
     <c-box>Hello {{ username }}</c-box>
-    <c-button @click="joinChat">Join Chat</c-button>
-    <chat :leecher="user"/>
+    <c-flex justify="center">
+      <chat-container
+        @sendMessage="sendMessage($event)"
+        :sessionId="selectedChat"
+        :messages="filteredMessages"
+        :username="username"
+        :sessions="sessions"
+        @selectSession="openChat($event)"
+      />
+    </c-flex>
   </c-box>
 </template>
 
 <script>
-import chat from '@/components/private/sessions/Chat.vue';
+import ChatContainer from '../components/private/sessions/ChatContainer.vue';
 
 export default {
-  components: {
-    chat,
-  },
+  components: { ChatContainer },
   data() {
     return {
       username: '',
-      user: '',
+      sessions: [],
+      selectedChat: null,
+      messages: null,
     };
   },
   methods: {
-    async joinChat() {
-      const messageRef = this.$fire.database.ref('test');
+    openChat(session) {
+      this.selectedChat = session.key;
+    },
+    async sendMessage(data) {
+      console.log(data);
+      const messageRef = this.$fire.database.ref(`channels/${data.sessionId}`);
       try {
-        // await messageRef.set({
-        //   name: this.username,
-        //   message: 'Nuxt-Fire with Firebase Realtime Database rocks!',
-        // });
-        await messageRef.push({ name: this.username, message: 'hello' });
+        await messageRef.push({
+          name: this.username,
+          message: data.message,
+          createdAt: this.$fireModule.database.ServerValue.TIMESTAMP,
+        });
       } catch (e) {
-        alert(e);
+        console.log(e);
       }
     },
   },
@@ -37,20 +49,24 @@ export default {
     this.username = await this.$auth.$storage.getUniversal('username');
     const token = await this.$auth.strategy.token.get();
 
-    const data = await this.$axios.$get(
-      // url,
+    this.sessions = await this.$axios.$get(
       `${process.env.BACKEND_URL}/user/sessions/${this.username}`,
       {
         headers: { Authorisation: token },
       },
     );
-
-    this.user = data;
-    const messsageRef = this.$fire.database.ref('channels');
-    console.log(this.user);
-    console.log(messsageRef);
-    const test = await fetch(`${messsageRef.toString()}.json`);
-    console.log(test);
+    await this.$fire.database.ref('channels').on('value', (snapshot) => {
+      const data = snapshot.val();
+      this.messages = data;
+    });
+  },
+  computed: {
+    filteredMessages() {
+      if (this.selectedChat && this.messages) {
+        return this.messages[this.selectedChat];
+      }
+      return null;
+    },
   },
 };
 </script>
