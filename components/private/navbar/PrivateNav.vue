@@ -53,7 +53,7 @@ export default {
   },
   data() {
     return {
-      navBarItems: ['sessions', 'leaderboard', 'profile'],
+      navBarItems: ['sessions', 'leaderboard', 'account'],
     };
   },
   computed: {
