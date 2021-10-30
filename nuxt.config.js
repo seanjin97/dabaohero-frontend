@@ -45,7 +45,6 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@chakra-ui/nuxt',
-    'bootstrap-vue/nuxt',
     '@nuxtjs/emotion',
     '@nuxtjs/auth-next',
     '@nuxtjs/firebase',
