@@ -6,10 +6,10 @@
       bgGradient="linear(to-r, blackAlpha.600,transparent)">
         <c-stack maxW="2x1" align="center" spacing="6">
           <c-text color="white" fontWeight="700" lineHeight="1.2"
-          :fontSize="['24px', '32px']">Hello username</c-text>
+          :fontSize="['24px', '32px']">Hello {{username}}</c-text>
           <c-stack direction="row">
             <c-button bg="blue.400" round="full" color="white">
-              Show Me More
+              Dabaoer
             </c-button>
             <c-button bg="red.300" round="full" color="white">
               Show Me More
@@ -23,6 +23,8 @@
 
 <script>
 export default {
+
   name: 'Home',
+  props: ['username'],
 };
 </script>

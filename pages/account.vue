@@ -1,8 +1,12 @@
 <template>
-  <c-box>
-    <h1>this is /accoutn page</h1>
-    <c-box>{{ user.key }}</c-box>
-    <c-box>{{ user }}</c-box>
+  <c-box align="center">
+    <c-form-control>
+      <c-form-label for="email">Email address</c-form-label>
+      <c-input type="email" id="email" aria-describedby="email-helper-text" />
+      <c-form-helper-text id="email-helper-text">
+        We'll never share your email.
+      </c-form-helper-text>
+  </c-form-control>
   </c-box>
 </template>
 

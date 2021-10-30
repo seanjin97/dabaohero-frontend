@@ -9,4 +9,5 @@ export default {
     name: String,
   },
 };
+
 </script>

@@ -4,6 +4,7 @@
     <appworks />
     <founding />
     <team />
+    <div class="btn btn-primary">Hello</div>
   </c-box>
 </template>
 

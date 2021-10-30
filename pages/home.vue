@@ -1,6 +1,6 @@
 <template>
   <c-box>
-    <hero />
+    <hero :username="username"/>
     <c-button v-show="this.$auth.loggedIn" @click="getToken">Get Token</c-button>
     <c-box v-show="this.$auth.loggedIn">{{ 'Access token: ' + token }}</c-box>
     <c-box v-show="this.$auth.loggedIn">{{
