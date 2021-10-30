@@ -3,6 +3,7 @@
     <p v-show="this.$auth.loggedIn">Hello user "{{ username }}"</p>
     <p> leaderboard page </p>
     <leaderboard :details="user"/>
+92
   </div>
 </template>
 
@@ -16,8 +17,7 @@ export default {
       user: '',
       token: '',
       refreshToken: '',
-      username: '',
-      profile: '',
+      username: ''
     };
   },
   methods: {
