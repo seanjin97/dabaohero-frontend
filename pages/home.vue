@@ -42,7 +42,10 @@
             <i class="fas fa-angle-left"></i>
           </c-button>
         </c-box>
-        <dabaoer v-if="isOptionSelected && showDabaoerFlow" />
+        <dabaoer
+          v-if="isOptionSelected && showDabaoerFlow"
+          @createSession="getField"
+        />
         <leecher
           v-else-if="isOptionSelected && !showDabaoerFlow"
           :searchedSessions="searchedSessions"
@@ -95,7 +98,11 @@ export default {
     },
     getField(x) {
       this.field = x;
-      this.fetching();
+      if (this.field.length === 3) {
+        this.createSession();
+      } else {
+        this.fetching();
+      }
     },
     async fetching() {
       const url = `${process.env.BACKEND_URL}/session/search?username=${this.username}&postal_code=${this.field}`;
@@ -115,6 +122,16 @@ export default {
       const url = `${process.env.BACKEND_URL}/session/join`;
       const data = await this.$axios.$post(url, {
         session_code: this.key,
+        username: this.username,
+      });
+      console.log(data);
+    },
+    async createSession() {
+      const url = `${process.env.BACKEND_URL}/session/create`;
+      const data = await this.$axios.$post(url, {
+        postal_code: this.field[0],
+        food: this.field[1],
+        departure_time: this.field[2],
         username: this.username,
       });
       console.log(data);
