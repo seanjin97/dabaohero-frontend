@@ -55,6 +55,8 @@ export default {
         headers: { Authorisation: token },
       },
     );
+    console.log('hello');
+    console.log(this.sessions);
     await this.$fire.database.ref('channels').on('value', (snapshot) => {
       const data = snapshot.val();
       this.messages = data;
