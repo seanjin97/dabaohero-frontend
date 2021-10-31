@@ -4,7 +4,7 @@
       as="nuxt-link"
       :to="link"
       color="gray.500"
-      :_hover="{ color: 'blue.500' }"
+      :_hover="{ color: 'yellow.400' }"
     >
       {{ formatText }}
     </c-link>

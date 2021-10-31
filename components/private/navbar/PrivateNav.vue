@@ -3,11 +3,12 @@
     <c-link
       as="nuxt-link"
       to="/home"
-      color="brand.700"
+      fontSize="3xl"
+      color="yellow.400"
       font-weight="bold"
-      :_hover="{ color: 'brand.900' }"
+      :_hover="{ color: 'gray.300' }"
     >
-      DabaoHero
+      DabaoHero.
     </c-link>
 
     <c-box
@@ -53,7 +54,7 @@ export default {
   },
   data() {
     return {
-      navBarItems: ['sessions', 'leaderboard', 'account'],
+      navBarItems: ['about', 'sessions', 'leaderboard', 'account'],
     };
   },
   computed: {

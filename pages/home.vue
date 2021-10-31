@@ -1,79 +1,85 @@
 <template>
-  <c-box>
-    <c-box ml="5" mt="5" v-show="this.$auth.loggedIn"
-      >Hello user "{{ username }}"</c-box
-    >
-    <c-flex my="32" v-if="!isOptionSelected" justify="center">
-      <c-button
-        m="4"
-        @click="
-          () => {
-            showDabaoerFlow = true;
-            isOptionSelected = true;
-          }
-        "
-      >
-        Dabao</c-button
-      >
-      <c-button
-        m="4"
-        @click="
-          () => {
-            showDabaoerFlow = false;
-            isOptionSelected = true;
-          }
-        "
-        >Delivery</c-button
-      >
-    </c-flex>
-    <c-box my="32">
-      <c-flex justify="center">
-        <c-box pos="absolute" left="500px">
-          <c-button
-            @click="
-              () => {
-                isOptionSelected = false;
-                searchedSessions = [];
-              }
-            "
-            mr="16"
-            v-show="isOptionSelected"
-          >
-            <i class="fas fa-angle-left"></i>
-          </c-button>
-        </c-box>
-        <dabaoer
-          v-if="isOptionSelected && showDabaoerFlow"
-          @createSession="getField"
-        />
-        <leecher
-          v-else-if="isOptionSelected && !showDabaoerFlow"
-          :searchedSessions="searchedSessions"
-          @getPostal="getField"
-          v-on:click="getKey"
-          @joinSession="getKey"
-        />
-      </c-flex>
-    </c-box>
-    <c-button v-show="this.$auth.loggedIn" @click="getToken">
-      Get Token
-    </c-button>
+  <div>
+    <Hero />
 
-    <c-box v-show="this.$auth.loggedIn">{{ 'Access token: ' + token }}</c-box>
-    <c-box v-show="this.$auth.loggedIn">{{
-      'Refresh token: ' + refreshToken
-    }}</c-box>
-  </c-box>
+    <c-box>
+      <c-box ml="5" mt="5" v-show="this.$auth.loggedIn"
+        >Hello user "{{ username }}"</c-box
+      >
+      <c-flex my="32" v-if="!isOptionSelected" justify="center">
+        <c-button
+          m="4"
+          @click="
+            () => {
+              showDabaoerFlow = true;
+              isOptionSelected = true;
+            }
+          "
+        >
+          Dabao</c-button
+        >
+        <c-button
+          m="4"
+          @click="
+            () => {
+              showDabaoerFlow = false;
+              isOptionSelected = true;
+            }
+          "
+          >Delivery</c-button
+        >
+      </c-flex>
+      <c-box my="32">
+        <c-flex justify="center">
+          <c-box pos="absolute" left="500px">
+            <c-button
+              @click="
+                () => {
+                  isOptionSelected = false;
+                  searchedSessions = [];
+                }
+              "
+              mr="16"
+              v-show="isOptionSelected"
+            >
+              <i class="fas fa-angle-left"></i>
+            </c-button>
+          </c-box>
+          <dabaoer
+            v-if="isOptionSelected && showDabaoerFlow"
+            @createSession="getField"
+          />
+          <leecher
+            v-else-if="isOptionSelected && !showDabaoerFlow"
+            :searchedSessions="searchedSessions"
+            @getPostal="getField"
+            v-on:click="getKey"
+            @joinSession="getKey"
+          />
+        </c-flex>
+      </c-box>
+      <c-button v-show="this.$auth.loggedIn" @click="getToken">
+        Get Token
+      </c-button>
+
+      <c-box v-show="this.$auth.loggedIn">{{ 'Access token: ' + token }}</c-box>
+      <c-box v-show="this.$auth.loggedIn">{{
+        'Refresh token: ' + refreshToken
+      }}</c-box>
+    </c-box>
+  </div>
 </template>
 
 <script>
 import Leecher from '@/components/private/leecher/Leecher.vue';
 import Dabaoer from '@/components/private/dabaoer/Dabaoer.vue';
+import Hero from '@/components/common/hero-bs.vue';
 
 export default {
   components: {
     Leecher,
     Dabaoer,
+    Hero,
   },
   data() {
     return {
