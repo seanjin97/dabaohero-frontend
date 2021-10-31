@@ -3,7 +3,7 @@
     <c-link
       as="nuxt-link"
       to="/"
-      fontSize="3xl"
+      fontSize="2xl"
       color="yellow.400"
       font-weight="bold"
       :_hover="{ color: 'gray.300' }"

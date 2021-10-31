@@ -1,12 +1,11 @@
 <template>
   <div>
     <Hero />
-
     <c-box>
       <c-box ml="5" mt="5" v-show="this.$auth.loggedIn"
         >Hello user "{{ username }}"</c-box
       >
-      <c-flex my="32" v-if="!isOptionSelected" justify="center">
+      <!-- <c-flex my="32" v-if="!isOptionSelected" justify="center">
         <c-button
           m="4"
           @click="
@@ -56,8 +55,9 @@
             v-on:click="getKey"
             @joinSession="getKey"
           />
-        </c-flex>
+        </c-flex> -->
       </c-box>
+
       <c-button v-show="this.$auth.loggedIn" @click="getToken">
         Get Token
       </c-button>
@@ -66,19 +66,18 @@
       <c-box v-show="this.$auth.loggedIn">{{
         'Refresh token: ' + refreshToken
       }}</c-box>
-    </c-box>
   </div>
 </template>
 
 <script>
-import Leecher from '@/components/private/leecher/Leecher.vue';
-import Dabaoer from '@/components/private/dabaoer/Dabaoer.vue';
+// import Leecher from '@/components/private/leecher/Leecher.vue';
+// import Dabaoer from '@/components/private/dabaoer/Dabaoer.vue';
 import Hero from '@/components/common/hero-bs.vue';
 
 export default {
   components: {
-    Leecher,
-    Dabaoer,
+    // Leecher,
+    // Dabaoer,
     Hero,
   },
   data() {

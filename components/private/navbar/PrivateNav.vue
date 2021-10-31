@@ -1,12 +1,20 @@
+<!-- eslint-disable vue/no-mutating-props -->
 <template>
   <c-box as="nav" h="60px" px="4" d="flex" align-items="center" shadow="sm">
     <c-link
       as="nuxt-link"
       to="/home"
-      fontSize="3xl"
+      fontSize="2xl"
       color="yellow.400"
       font-weight="bold"
       :_hover="{ color: 'gray.300' }"
+      @click="
+                () => {
+                  isOptionSelected = false;
+                  searchedSessions = [];
+                  showDabaoerFlow = false;
+                }
+              "
     >
       DabaoHero.
     </c-link>
@@ -49,6 +57,7 @@ import NavItem from '@/components/common/navbar/NavItem.vue';
 export default {
   name: 'PrivateNav',
   inject: ['$chakraColorMode', '$toggleColorMode'],
+  props: ['showDabaoerFlow', 'isOptionSelected', 'searchedSessions'],
   components: {
     NavItem,
   },
