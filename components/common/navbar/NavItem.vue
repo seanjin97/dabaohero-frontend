@@ -3,7 +3,7 @@
     <c-link
       as="nuxt-link"
       :to="link"
-      color="gray.500"
+      color="gray.400"
       :_hover="{ color: 'yellow.400' }"
     >
       {{ formatText }}
