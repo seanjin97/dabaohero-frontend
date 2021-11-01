@@ -1,8 +1,8 @@
 <template>
   <div>
     <p v-show="this.$auth.loggedIn">Hello user "{{ username }}"</p>
-    <p> leaderboard page </p>
-    <leaderboard :details="user"/>
+    <p>leaderboard page</p>
+    <leaderboard :details="user" />
   </div>
 </template>
 
@@ -57,7 +57,7 @@ export default {
     const token = await this.$auth.strategy.token.get();
     const data = await this.$axios.$get(
       // url,
-      'http://localhost:8080/leaderboard',
+      `${process.env.BACKEND_URL}/leaderboard`,
       {
         headers: { Authorisation: token },
       },
