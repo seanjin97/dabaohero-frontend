@@ -1,79 +1,89 @@
+<!-- eslint-disable max-len -->
 <template>
-  <c-box>
-    <c-box ml="5" mt="5" v-show="this.$auth.loggedIn"
-      >Hello user "{{ username }}"</c-box
-    >
-    <c-flex my="32" v-if="!isOptionSelected" justify="center">
-      <c-button
-        m="4"
-        @click="
-          () => {
-            showDabaoerFlow = true;
-            isOptionSelected = true;
-          }
-        "
-      >
-        Dabao</c-button
-      >
-      <c-button
-        m="4"
-        @click="
-          () => {
-            showDabaoerFlow = false;
-            isOptionSelected = true;
-          }
-        "
-        >Delivery</c-button
-      >
-    </c-flex>
-    <c-box my="32">
-      <c-flex justify="center">
-        <c-box pos="absolute" left="500px">
-          <c-button
+  <div>
+    <div class="container-fluid ">
+      <div class="px-5 pt-5 my-1 text-center min-vh-75 bg-gradient">
+        <h1 class="display-4 fw-bold animate__animated animate__fadeInLeft">Welcome, {{username}}.</h1> <br>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">DabaoHero aims to promote hawker businesses in Singapore by encouraging more takeaways, without involving the hawkers themselves.</p>
+          <div v-if="!isOptionSelected" class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <button type="button" class="btn btn-warning fw-bold btn-lg px-4 me-sm-3 shadow-sm animate__animated animate__fadeIn"
             @click="
               () => {
-                isOptionSelected = false;
-                searchedSessions = [];
+                showDabaoerFlow = true;
+                isOptionSelected = true;
               }
             "
-            mr="16"
-            v-show="isOptionSelected"
-          >
-            <i class="fas fa-angle-left"></i>
-          </c-button>
-        </c-box>
-        <dabaoer
-          v-if="isOptionSelected && showDabaoerFlow"
-          @createSession="getField"
-        />
-        <leecher
-          v-else-if="isOptionSelected && !showDabaoerFlow"
-          :searchedSessions="searchedSessions"
-          @getPostal="getField"
-          v-on:click="getKey"
-          @joinSession="getKey"
-        />
-      </c-flex>
-    </c-box>
+            >Dabao</button>
+
+            <button class="btn btn-outline-warning fw-bold btn-lg px-4 shadow-sm animate__animated animate__fadeIn"
+            @click="
+              () => {
+                showDabaoerFlow = false;
+                isOptionSelected = true;
+              }
+            "
+            >Delivery</button>
+          </div>
+        </div>
+      </div>
+    </div>
+        <c-flex justify="center">
+          <center>
+          <c-box pos="absolute" left="500px">
+            <c-button
+              @click="
+                () => {
+                  isOptionSelected = false;
+                  searchedSessions = [];
+                }
+              "
+              mr="16"
+              v-show="isOptionSelected"
+            >
+              <i class="fas fa-angle-left"></i>
+            </c-button>
+          </c-box>
+          <dabaoer
+            v-if="isOptionSelected && showDabaoerFlow"
+            @createSession="getField"
+          />
+          <leecher
+            v-else-if="isOptionSelected && !showDabaoerFlow"
+            :searchedSessions="searchedSessions"
+            @getPostal="getField"
+            v-on:click="getKey"
+            @joinSession="getKey"
+          />
+          </center>
+        </c-flex>
+    <HeroImg />
+    <br>
+    <Feature />
+
     <c-button v-show="this.$auth.loggedIn" @click="getToken">
       Get Token
     </c-button>
 
-    <c-box v-show="this.$auth.loggedIn">{{ 'Access token: ' + token }}</c-box>
-    <c-box v-show="this.$auth.loggedIn">{{
-      'Refresh token: ' + refreshToken
-    }}</c-box>
-  </c-box>
+      <c-box v-show="this.$auth.loggedIn">{{ 'Access token: ' + token }}</c-box>
+      <c-box v-show="this.$auth.loggedIn">{{
+        'Refresh token: ' + refreshToken
+      }}</c-box>
+  </div>
 </template>
 
 <script>
 import Leecher from '@/components/private/leecher/Leecher.vue';
 import Dabaoer from '@/components/private/dabaoer/Dabaoer.vue';
+import HeroImg from '@/components/common/hero-image.vue';
+import Feature from '@/components/common/feature.vue';
 
 export default {
   components: {
     Leecher,
     Dabaoer,
+    HeroImg,
+    Feature,
   },
   data() {
     return {
