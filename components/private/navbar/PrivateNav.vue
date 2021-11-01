@@ -3,7 +3,7 @@
   <c-box as="nav" h="60px" px="4" d="flex" align-items="center" shadow="sm">
     <c-link
       as="nuxt-link"
-      to="/home"
+      to="/"
       fontSize="2xl"
       color="yellow.400"
       font-weight="bold"
@@ -27,6 +27,9 @@
       list-style-type="none"
       ml="auto"
     >
+        <c-box as="li" mr="8" color="gray.400">
+          <nuxt-link to="/home#about">About</nuxt-link>
+        </c-box>
       <nav-item
         v-for="item in navBarItems"
         :key="item"
@@ -63,7 +66,7 @@ export default {
   },
   data() {
     return {
-      navBarItems: ['about', 'sessions', 'leaderboard', 'account'],
+      navBarItems: ['sessions', 'leaderboard', 'account'],
     };
   },
   computed: {

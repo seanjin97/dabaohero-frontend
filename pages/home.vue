@@ -7,7 +7,8 @@
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4">DabaoHero aims to promote hawker businesses in Singapore by encouraging more takeaways, without involving the hawkers themselves.</p>
           <div v-if="!isOptionSelected" class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <button type="button" class="btn btn-warning fw-bold btn-lg px-4 me-sm-3 shadow-sm" @click="
+            <button type="button" class="btn btn-warning fw-bold btn-lg px-4 me-sm-3 shadow-sm animate__animated animate__fadeIn"
+            @click="
               () => {
                 showDabaoerFlow = true;
                 isOptionSelected = true;
@@ -15,7 +16,7 @@
             "
             >Dabao</button>
 
-            <button class="btn btn-outline-warning fw-bold btn-lg px-4 shadow-sm"
+            <button class="btn btn-outline-warning fw-bold btn-lg px-4 shadow-sm animate__animated animate__fadeIn"
             @click="
               () => {
                 showDabaoerFlow = false;
@@ -28,6 +29,7 @@
       </div>
     </div>
         <c-flex justify="center">
+          <center>
           <c-box pos="absolute" left="500px">
             <c-button
               @click="
@@ -53,9 +55,12 @@
             v-on:click="getKey"
             @joinSession="getKey"
           />
+          </center>
         </c-flex>
     <HeroImg />
     <br>
+    <Feature />
+
     <c-button v-show="this.$auth.loggedIn" @click="getToken">
       Get Token
     </c-button>
@@ -71,12 +76,14 @@
 import Leecher from '@/components/private/leecher/Leecher.vue';
 import Dabaoer from '@/components/private/dabaoer/Dabaoer.vue';
 import HeroImg from '@/components/common/hero-image.vue';
+import Feature from '@/components/common/feature.vue';
 
 export default {
   components: {
     Leecher,
     Dabaoer,
     HeroImg,
+    Feature,
   },
   data() {
     return {
