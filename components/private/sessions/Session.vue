@@ -15,7 +15,7 @@
   </c-grid-item> -->
   <div>
     <li class="clearfix" @click="$emit('selectSession', session)">
-        <img :src="randomimage" alt="avatar">
+        <img :src="randomImage" alt="avatar">
         <div class="about">
             <div class="name">Session {{ trimmedId }}</div>
             <div class="status">
@@ -39,10 +39,11 @@ export default {
       }
       return null;
     },
-    randomimage() {
+    randomImage() {
       const num = Math.floor(Math.random() * 8 + 1);
       return `https://bootdey.com/img/Content/avatar/avatar${num}.png`;
     },
   },
 };
+
 </script>
