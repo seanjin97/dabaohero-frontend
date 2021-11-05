@@ -107,11 +107,11 @@ export default {
     async fetching() {
       const url = `${process.env.BACKEND_URL}/session/search?username=${this.username}&postal_code=${this.field}`;
       const token = await this.$auth.strategy.token.get();
-
       const data = await this.$axios.$get(url, {
         headers: { Authorisation: token },
       });
       this.searchedSessions = data;
+      console.log(data);
     },
 
     getKey(x) {
@@ -120,7 +120,11 @@ export default {
     },
     async fetchSession() {
       const url = `${process.env.BACKEND_URL}/session/join`;
+      const token = await this.$auth.strategy.token.get();
       const data = await this.$axios.$post(url, {
+        headers: { Authorisation: token },
+      },
+      {
         session_code: this.key,
         username: this.username,
       });
@@ -128,7 +132,11 @@ export default {
     },
     async createSession() {
       const url = `${process.env.BACKEND_URL}/session/create`;
+      const token = await this.$auth.strategy.token.get();
       const data = await this.$axios.$post(url, {
+        headers: { Authorisation: token },
+      },
+      {
         postal_code: this.field[0],
         food: this.field[1],
         departure_time: this.field[2],

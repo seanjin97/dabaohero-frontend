@@ -17,7 +17,7 @@ export default {
       user: '',
       token: '',
       refreshToken: '',
-      username: ''
+      username: '',
     };
   },
   methods: {
