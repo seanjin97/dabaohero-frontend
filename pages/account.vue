@@ -1,5 +1,5 @@
 <template>
-  <profile :userData="userData"/>
+  <profile :userData="userData" :active_sessions="active_sessions" :loginDate="loginDate"/>
 </template>
 
 <script>
@@ -8,9 +8,23 @@ import Profile from '../components/private/profile/Profile.vue';
 export default {
   data() {
     return {
-      userData: Object,
-      email: String,
+      userData: {},
+      email: '',
+      loginDate: '',
+      active_sessions: null,
     };
+  },
+  methods: {
+    lastLogin() {
+      const lastDate = this.userData.last_login;
+      const date = lastDate.split('T')[0];
+      const time = lastDate.split('T')[1].slice(0, 8);
+      const actualDatetime = `${date} ${time}`;
+      return actualDatetime;
+    },
+    activeSessions() {
+      return this.userData.active_sessions.length;
+    },
   },
   components: { Profile },
   async getToken() {
@@ -29,6 +43,8 @@ export default {
       });
     console.log(data);
     this.userData = data;
+    this.loginDate = this.lastLogin();
+    this.active_sessions = this.activeSessions();
   },
 };
 

@@ -23,7 +23,7 @@
                             </div>
                             <div class="media">
                                 <label>Last Login</label>
-                                <p>{{lastLogin}}</p>
+                                <p>{{loginDate}}</p>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-6 col-lg-3">
                     <div class="count-data text-center">
-                        <h6 class="count h2">{{userData.active_sessions.length}}</h6>
+                        <h6 class="count h2">{{active_sessions}}</h6>
                         <p class="m-0px font-w-600">Number of active sessions</p>
                     </div>
                 </div>
@@ -72,18 +72,11 @@
 <script>
 
 export default {
-  name: 'Leecher',
+  name: 'Profile',
   props: {
     userData: Object,
-  },
-  computed: {
-    lastLogin() {
-      const lastDate = this.userData.last_login;
-      const date = lastDate.split('T')[0];
-      const time = lastDate.split('T')[1].slice(0, 8);
-      const actualDatetime = `${date} ${time}`;
-      return actualDatetime;
-    },
+    loginDate: String,
+    active_sessions: Number,
   },
 };
 </script>
