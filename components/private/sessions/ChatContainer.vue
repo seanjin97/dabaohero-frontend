@@ -1,7 +1,8 @@
 <!--eslint-disable max-len-->
 <template>
+
 <div class="container">
-  <div class="row clearfix">
+  <div class="row clearfix justify-content-center">
       <div class="col-lg-12">
           <div class="card chat-app">
               <div id="plist" class="people-list">
@@ -78,6 +79,7 @@
       </div>
   </div>
 </div>
+
 </template>
 
 <script>
@@ -133,8 +135,8 @@ export default {
 </script>
 
 <style>
-body{
-    background-color: #f4f7f6;
+.container{
+    height: 100%;
 }
 .card {
     background: #fff;
@@ -144,7 +146,7 @@ body{
     border-radius: .55rem;
     position: relative;
     width: 100%;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .chat-app .people-list {
     width: 280px;
@@ -157,7 +159,6 @@ body{
 .chat-app .chat {
     margin-left: 280px;
     border-left: 1px solid #eaeaea;
-    /* width: 100%; */
 }
 .people-list {
     -moz-transition: .5s;

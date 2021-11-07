@@ -1,7 +1,6 @@
 <template>
   <c-box>
-    <c-box>Hello {{ username }}</c-box>
-    <c-flex justify="center">
+    <div class="flex justify-content-center mt-3">
       <chat-container
         @sendMessage="sendMessage($event)"
         :sessionId="selectedChat"
@@ -10,7 +9,7 @@
         :sessions="sessions"
         @selectSession="openChat($event)"
       />
-    </c-flex>
+    </div>
   </c-box>
 </template>
 

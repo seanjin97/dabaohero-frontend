@@ -1,18 +1,4 @@
 <template>
-  <!-- <c-grid-item
-    display="flex"
-    justify-content="center"
-    align-items="center"
-    col-span="2"
-    bg="blue.50"
-    cursor="pointer"
-  >
-    <c-box @click="$emit('selectSession', session)" align="center" bg="blue.50">
-      <c-text fontSize="3xl">{{ trimmedId }}</c-text>
-      <c-text fontSize="xl">{{ session.food }}</c-text>
-      <c-text fontSize="md">Host: {{ session.dabaoer }}</c-text>
-    </c-box>
-  </c-grid-item> -->
   <div>
     <li class="clearfix" @click="$emit('selectSession', session)">
         <img :src="randomImage" alt="avatar">
