@@ -1,14 +1,15 @@
 <!-- eslint-disable max-len -->
 <template>
   <div>
-    <div class="container-fluid ">
-      <div class="px-5 pt-5 my-1 text-center min-vh-75 bg-gradient">
-        <h1 class="display-4 fw-bold animate__animated animate__fadeInLeft">Welcome, {{username}}.</h1> <br>
-        <div class="col-lg-6 mx-auto">
-          <p class="lead fw-normal mb-4">DabaoHero aims to promote hawker businesses in Singapore by encouraging more takeaways, without involving the hawkers themselves.</p>
-          <br>
-          <div v-if="!isOptionSelected" class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <button type="button" class="btn-dabao fw-bold btn-lg px-4 me-sm-3 shadow-lg animate__animated animate__zoomIn"
+    <div class="container-fluid bg-grad">
+      <div class="px-5 pt-5 my-1 text-center min-vh-75">
+        <h1 class="display-4 fw-bold animate__animated animate__fadeInLeft">Welcome to DabaoHero.</h1> <br>
+        <div class=" mx-auto">
+          <p class="lead fw-normal text-break mb-6">DabaoHero aims to promote hawker businesses in Singapore through <strong>community-driven</strong> food deliveries, encouraging more takeaways for our hawkers without involving them in the process.</p>
+          <br><br>
+          <h2 class="fs-3 fw-normal mb-4">I want to.. </h2>
+          <div v-if="!isOptionSelected" class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn-dabao fw-bold btn-lg px-4 me-sm-3 shadow animate__animated animate__zoomIn"
             @click="
               () => {
                 showDabaoerFlow = true;
@@ -16,7 +17,7 @@
               }
             "
             >Dabao</button>
-            <button class="btn-dabao fw-bold btn-lg px-4 shadow-lg animate__animated animate__zoomIn"
+            <button class="btn-dabao fw-bold btn-lg px-4 shadow animate__animated animate__zoomIn"
             @click="
               () => {
                 showDabaoerFlow = false;
@@ -24,14 +25,11 @@
               }
             "
             >Order</button>
-
           </div>
-        </div>
-      </div>
-    </div>
-        <c-flex justify="center">
+
+          <c-flex justify="center" mb="50px">
           <center>
-          <c-box pos="relative" right="150px" top="45px">
+          <c-box pos="relative" right="150px" top="41px">
             <c-button
               @click="
                 () => {
@@ -58,10 +56,14 @@
           />
           </center>
         </c-flex>
-    <br>
-    <HeroImg />
+          <HeroImg />
+        </div>
+      </div>
+    </div>
     <br>
     <Feature />
+    <br>
+    <Partners />
 
     <c-button v-show="this.$auth.loggedIn" @click="getToken">
       Get Token
@@ -80,6 +82,7 @@ import Leecher from '@/components/private/leecher/Leecher.vue';
 import Dabaoer from '@/components/private/dabaoer/Dabaoer.vue';
 import HeroImg from '@/components/common/hero-image.vue';
 import Feature from '@/components/common/feature.vue';
+import Partners from '@/components/common/partners.vue';
 
 export default {
   components: {
@@ -87,6 +90,7 @@ export default {
     Dabaoer,
     HeroImg,
     Feature,
+    Partners,
   },
   data() {
     return {
