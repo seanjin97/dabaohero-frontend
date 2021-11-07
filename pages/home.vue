@@ -5,9 +5,10 @@
       <div class="px-5 pt-5 my-1 text-center min-vh-75 bg-gradient">
         <h1 class="display-4 fw-bold animate__animated animate__fadeInLeft">Welcome, {{username}}.</h1> <br>
         <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">DabaoHero aims to promote hawker businesses in Singapore by encouraging more takeaways, without involving the hawkers themselves.</p>
+          <p class="lead fw-normal mb-4">DabaoHero aims to promote hawker businesses in Singapore by encouraging more takeaways, without involving the hawkers themselves.</p>
+          <br>
           <div v-if="!isOptionSelected" class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <button type="button" class="btn btn-warning fw-bold btn-lg px-4 me-sm-3 shadow-sm animate__animated animate__fadeIn"
+            <button type="button" class="btn-dabao fw-bold btn-lg px-4 me-sm-3 shadow-lg animate__animated animate__zoomIn"
             @click="
               () => {
                 showDabaoerFlow = true;
@@ -15,22 +16,22 @@
               }
             "
             >Dabao</button>
-
-            <button class="btn btn-outline-warning fw-bold btn-lg px-4 shadow-sm animate__animated animate__fadeIn"
+            <button class="btn-dabao fw-bold btn-lg px-4 shadow-lg animate__animated animate__zoomIn"
             @click="
               () => {
                 showDabaoerFlow = false;
                 isOptionSelected = true;
               }
             "
-            >Delivery</button>
+            >Order</button>
+
           </div>
         </div>
       </div>
     </div>
         <c-flex justify="center">
           <center>
-          <c-box pos="absolute" left="500px">
+          <c-box pos="relative" right="150px" top="45px">
             <c-button
               @click="
                 () => {
@@ -57,6 +58,7 @@
           />
           </center>
         </c-flex>
+    <br>
     <HeroImg />
     <br>
     <Feature />
@@ -69,6 +71,7 @@
       <c-box v-show="this.$auth.loggedIn">{{
         'Refresh token: ' + refreshToken
       }}</c-box>
+
   </div>
 </template>
 

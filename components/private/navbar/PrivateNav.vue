@@ -27,8 +27,15 @@
       list-style-type="none"
       ml="auto"
     >
-        <c-box as="li" mr="8" color="gray.400">
-          <nuxt-link to="/home#about">About</nuxt-link>
+      <c-box as="li" mr="8">
+        <c-link
+          as="nuxt-link"
+          to="/home#about"
+          color="gray.400"
+          :_hover="{ color: 'yellow.400' }"
+        >
+          About
+        </c-link>
         </c-box>
       <nav-item
         v-for="item in navBarItems"

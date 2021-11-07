@@ -22,7 +22,7 @@
       <c-box as="li" mr="8">
         <c-link
           as="nuxt-link"
-          to="#about"
+          to="/#about"
           color="gray.500"
           :_hover="{ color: 'yellow.400' }"
         >
@@ -32,7 +32,7 @@
       <c-box as="li" mr="8">
         <c-link
           as="nuxt-link"
-          to="#leaderboard"
+          to="leaderboard"
           color="gray.500"
           :_hover="{ color: 'yellow.400' }"
         >

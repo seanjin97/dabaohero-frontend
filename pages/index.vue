@@ -10,10 +10,9 @@
             <button type="button" class="btn btn-warning fw-bold btn-lg px-4 me-sm-3 shadow-sm animate__animated animate__fadeIn"
             @click="login"
             >Dabao</button>
-
             <button class="btn btn-outline-warning fw-bold btn-lg px-4 shadow-sm animate__animated animate__fadeIn"
             @click="login"
-            >Delivery</button>
+            >Order</button>
           </div>
         </div>
       </div>
