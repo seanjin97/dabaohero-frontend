@@ -5,7 +5,7 @@
       <div class="px-5 pt-5 my-1 text-center min-vh-75">
 
         <div class="d-inline" style="max-height: 30vh;">
-            <img src="./img/DabaoHero.png" class="img-fluid mx-auto mb-2 animate__animated animate__slideInDown" width="500" height="300">
+            <img src="./img/DabaoHero.png" class="img-fluid mx-auto mb-2 animate__animated animate__fadeInDown" width="500" height="300">
         </div>
 
         <br />
