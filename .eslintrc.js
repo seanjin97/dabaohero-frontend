@@ -17,6 +17,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'no-console': 'off',
+    'max-len': ['error', { code: 120 }],
   },
   settings: {
     'import/resolver': {

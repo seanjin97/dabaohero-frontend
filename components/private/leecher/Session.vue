@@ -1,6 +1,6 @@
 <template>
-  <c-box maxW="sm" border-width="1px" rounded="lg">
-    <c-image :src="require('@/assets/Image1.jpg')" />
+  <c-box maxW="sm" border-width="1px" rounded="lg" margin="3">
+    <c-image :src="require(`../../../assets/Image${randomImage}.jpg`)"/>
     <c-text fontWeight="bold" m="4">{{ session.food }}</c-text>
 
     <c-button v-show="!apiCalled" m="4" @click="joinSession">Join</c-button>
@@ -58,14 +58,21 @@ export default {
       this.apiCalled = true;
       const username = await this.$auth.$storage.getUniversal('username');
       const url = `${process.env.BACKEND_URL}/session/join`;
-      const data = await this.$axios.$post(url, {
-        session_code: this.session.key,
-        username,
-      });
+      const data = await this.$axios.$post(url,
+        {
+          session_code: this.session.key,
+          username,
+        });
       if (data) {
         this.apiSuccess = true;
       }
       console.log(data);
+    },
+  },
+  computed: {
+    randomImage() {
+      const num = Math.floor(Math.random() * 9 + 1);
+      return num;
     },
   },
 };

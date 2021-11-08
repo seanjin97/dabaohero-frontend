@@ -7,7 +7,8 @@
     bg="blue.50"
     cursor="pointer"
   >
-    <c-box @click="$emit('selectSession', session)" align="center" bg="blue.50">
+    <c-box @click="$emit('selectSession', session), $emit('getDabaoer', session.dabaoer)"
+    align="center" bg="blue.50">
       <c-text fontSize="3xl">{{ trimmedId }}</c-text>
       <c-text fontSize="xl">{{ session.food }}</c-text>
       <c-text fontSize="md">Host: {{ session.dabaoer }}</c-text>
@@ -15,13 +16,13 @@
   </c-grid-item> -->
   <div>
     <li class="clearfix" @click="$emit('selectSession', session)">
-        <img :src="randomImage" alt="avatar">
-        <div class="about">
-            <div class="name">Session {{ trimmedId }}</div>
-            <div class="status">
-              <i class="fa fa-circle online"></i> {{ session.food }}
-            </div>
+      <img :src="randomImage" alt="avatar" />
+      <div class="about">
+        <div class="name">Session {{ trimmedId }}</div>
+        <div class="status">
+          <i class="fa fa-circle online"></i> {{ session.food }}
         </div>
+      </div>
     </li>
   </div>
 </template>
@@ -45,5 +46,4 @@ export default {
     },
   },
 };
-
 </script>

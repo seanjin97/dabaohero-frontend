@@ -1,7 +1,6 @@
 <template>
   <c-box>
-    <c-box>Hello {{ username }}</c-box>
-    <c-flex justify="center">
+    <div class="flex justify-content-center mt-3">
       <chat-container
         @sendMessage="sendMessage($event)"
         :sessionId="selectedChat"
@@ -9,8 +8,9 @@
         :username="username"
         :sessions="sessions"
         @selectSession="openChat($event)"
+        @endSession="endSession()"
       />
-    </c-flex>
+    </div>
   </c-box>
 </template>
 
@@ -42,6 +42,24 @@ export default {
         });
       } catch (e) {
         console.log(e);
+      }
+    },
+    async endSession() {
+      this.username = await this.$auth.$storage.getUniversal('username');
+      const token = await this.$auth.strategy.token.get();
+      const url = `${process.env.BACKEND_URL}/session/complete`;
+      const data = await this.$axios.$post(url,
+        {
+          session_code: this.selectedChat,
+          username: this.username,
+        },
+        {
+          headers: { Authorisation: token },
+        });
+      if (data) {
+        const updatedSession = this.sessions.filter((item) => item.key !== this.selectedChat);
+        this.sessions = updatedSession;
+        console.log(this.sessions);
       }
     },
   },
