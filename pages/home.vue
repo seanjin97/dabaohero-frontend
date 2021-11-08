@@ -7,7 +7,7 @@
         <div class=" mx-auto">
           <p class="lead fw-normal text-break mb-6">DabaoHero aims to promote hawker businesses in Singapore through <strong>community-driven</strong> food deliveries, encouraging more takeaways for our hawkers without involving them in the process.</p>
           <br><br>
-          <h2 class="fs-3 fw-normal mb-4">I want to.. </h2>
+          <h2 class="fs-2 fw-light mb-4">I want to.. </h2>
           <div v-if="!isOptionSelected" class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <button type="button" class="btn-dabao fw-bold btn-lg px-4 me-sm-3 shadow animate__animated animate__zoomIn"
             @click="
