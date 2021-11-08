@@ -58,10 +58,11 @@ export default {
       this.apiCalled = true;
       const username = await this.$auth.$storage.getUniversal('username');
       const url = `${process.env.BACKEND_URL}/session/join`;
-      const data = await this.$axios.$post(url, {
-        session_code: this.session.key,
-        username,
-      });
+      const data = await this.$axios.$post(url,
+        {
+          session_code: this.session.key,
+          username,
+        });
       if (data) {
         this.apiSuccess = true;
       }

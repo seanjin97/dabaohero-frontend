@@ -43,11 +43,6 @@ export default {
     };
   },
   methods: {
-    callField() {
-      if (this.field.length === 6) {
-        this.$emit('getPostal', this.field);
-      }
-    },
   },
 };
 </script>

@@ -1,36 +1,51 @@
 <template>
-  <c-box align="center">
-    <c-form-control>
-      <c-form-label for="email">Email address</c-form-label>
-      <c-input type="email" id="email" aria-describedby="email-helper-text" />
-      <c-form-helper-text id="email-helper-text">
-        We'll never share your email.
-      </c-form-helper-text>
-  </c-form-control>
-  </c-box>
+  <profile :userData="userData" :active_sessions="active_sessions" :loginDate="loginDate"/>
 </template>
 
 <script>
+import Profile from '../components/private/profile/Profile.vue';
+
 export default {
   data() {
     return {
-      user: {},
+      userData: {},
+      email: '',
+      loginDate: '',
+      active_sessions: null,
     };
   },
-  async fetch() {
+  methods: {
+    lastLogin() {
+      const lastDate = this.userData.last_login;
+      const date = lastDate.split('T')[0];
+      const time = lastDate.split('T')[1].slice(0, 8);
+      const actualDatetime = `${date} ${time}`;
+      return actualDatetime;
+    },
+    activeSessions() {
+      return this.userData.active_sessions.length;
+    },
+  },
+  components: { Profile },
+  async getToken() {
     const token = await this.$auth.strategy.token.get();
-    const username = await this.$auth.$storage.getUniversal('username');
-    const data = await this.$axios.$get(
-      `${process.env.BACKEND_URL}/user/account/${username}`,
+    const refreshToken = await this.$auth.strategy.refreshToken.get();
+    this.token = await token;
+    this.refreshToken = await refreshToken;
+  },
+  async fetch() {
+    this.email = await this.$auth.user.email;
+    const token = await this.$auth.strategy.token.get();
+    const url = `http://localhost:8080/user/account/${this.email}`;
+    const data = await this.$axios.$get(url,
       {
         headers: { Authorisation: token },
-      },
-    );
-    console.log(await data);
-    this.user = data;
+      });
+    console.log(data);
+    this.userData = data;
+    this.loginDate = this.lastLogin();
+    this.active_sessions = this.activeSessions();
   },
 };
-</script>
 
-<style>
-</style>
+</script>
