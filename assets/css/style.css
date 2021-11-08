@@ -1,0 +1,53 @@
+.btn-dabao {
+    font-weight: 500;
+    font-size: 25px;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: 0.3s;
+    line-height: 1;
+    color: #ffc107;
+    border: 2.5px solid #ffc107;
+}
+.btn-dabao:hover {
+    background: #ffc107;
+    color: #fff;
+    font-size: 24px;
+    border: 10px solid #ffc107 ;
+}
+
+client {
+    padding: 16px 0;
+    text-align: center;
+}
+.client img {
+max-width: 45%;
+/* width: 300px; */
+transition: all 0.4s ease-in-out;
+display: inline-block;
+filter: grayscale(100);
+}
+
+.client img:hover {
+filter: none;
+transform: scale(1.2);
+}
+
+.client img {
+    max-width: 50%;
+}
+
+section {
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.section-bg, .services .icon-box {
+background-color: #ffc10710;
+}
+
+.bg-grad {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 22%, rgba(238,197,70,0.21052170868347342) 100%);
+}

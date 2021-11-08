@@ -57,11 +57,45 @@
             </c-box>
           </c-box>
 
-      </ul>
-
-    </div>
-  </div>
-</nav>
+    <c-box
+      as="ul"
+      color="gray.500"
+      d="flex"
+      align-items="center"
+      list-style-type="none"
+      ml="auto"
+    >
+      <c-box as="li" mr="8">
+        <c-link
+          as="nuxt-link"
+          to="/home#about"
+          color="gray.400"
+          :_hover="{ color: 'yellow.400' }"
+        >
+          About
+        </c-link>
+        </c-box>
+      <nav-item
+        v-for="item in navBarItems"
+        :key="item"
+        :text="item"
+        :link="item"
+      />
+      <c-box as="li" mr="8">
+        <c-button @click="logout">Logout</c-button>
+      </c-box>
+      <c-box as="li">
+        <c-icon-button
+          variant="ghost"
+          variant-color="gray[900]"
+          :aria-label="`Switch to ${
+            colorMode === 'light' ? 'dark' : 'light'
+          } mode`"
+          :icon="colorMode == 'light' ? 'moon' : 'sun'"
+          @click="$toggleColorMode"
+        />
+      </c-box>
+    </c-box>
 </template>
 
 <script>

@@ -45,6 +45,7 @@ export default {
           rel: 'stylesheet',
           href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css',
         },
+        // { rel: 'stylesheet', href: '../assets/css/style.css' },
       ],
       script: [
         {
@@ -60,3 +61,7 @@ export default {
   },
 };
 </script>
+
+<style>
+@import '../assets/css/style.css';
+</style>
