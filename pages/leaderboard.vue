@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <p v-show="this.$auth.loggedIn">Hello user "{{ username }}"</p>
-    <p>leaderboard page</p>
+  <div class="mt-3">
     <leaderboard :details="user" />
   </div>
 </template>
