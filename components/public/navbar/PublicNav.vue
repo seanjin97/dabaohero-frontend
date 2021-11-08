@@ -3,11 +3,12 @@
     <c-link
       as="nuxt-link"
       to="/"
-      color="brand.700"
+      fontSize="2xl"
+      color="yellow.400"
       font-weight="bold"
-      :_hover="{ color: 'brand.900' }"
+      :_hover="{ color: 'gray.300' }"
     >
-      DabaoHero
+      DabaoHero.
     </c-link>
 
     <c-box
@@ -20,22 +21,22 @@
     >
       <c-box as="li" mr="8">
         <c-link
+          as="nuxt-link"
+          to="#about"
           color="gray.500"
-          :_hover="{ color: 'brand.400' }"
-          is-external
-          href="https://vue.chakra-ui.com"
+          :_hover="{ color: 'yellow.400' }"
         >
-          Documentation
+          About
         </c-link>
       </c-box>
       <c-box as="li" mr="8">
         <c-link
+          as="nuxt-link"
+          to="#leaderboard"
           color="gray.500"
-          :_hover="{ color: 'brand.400' }"
-          is-external
-          href="https://github.com/chakra-ui/chakra-ui-vue"
+          :_hover="{ color: 'yellow.400' }"
         >
-          Repo
+          Leaderboard
         </c-link>
       </c-box>
       <c-box as="li" mr="8">
