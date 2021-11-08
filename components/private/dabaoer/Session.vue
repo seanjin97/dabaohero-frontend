@@ -55,13 +55,15 @@ export default {
       const today = new Date();
       const username = await this.$auth.$storage.getUniversal('username');
       const date = `${today.getFullYear()}-${(today.getMonth() + 1)}-${today.getDate()}T${this.field[2]}`;
+      console.log(date);
       const url = `${process.env.BACKEND_URL}/session/create`;
-      const data = await this.$axios.$post(url, {
-        postal_code: this.field[0],
-        food: this.field[1],
-        departure_time: date,
-        username,
-      });
+      const data = await this.$axios.$post(url,
+        {
+          postal_code: this.field[0],
+          food: this.field[1],
+          departure_time: date,
+          username,
+        });
       if (data) {
         this.apiSuccess = true;
       }
