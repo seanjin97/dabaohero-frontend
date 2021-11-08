@@ -7,14 +7,14 @@
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4">DabaoHero aims to promote hawker businesses in Singapore by encouraging more takeaways, without involving the hawkers themselves.</p>
           <div v-if="!isOptionSelected" class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <button type="button" class="btn btn-warning fw-bold btn-lg px-4 me-sm-3 shadow-sm animate__animated animate__fadeIn"
+            <button class="btn btn-outline-warning fw-bold btn-lg px-4 shadow-sm animate__animated animate__fadeIn"
             @click="
               () => {
                 showDabaoerFlow = true;
                 isOptionSelected = true;
               }
             "
-            >Dabao</button>
+            >Deliver to Others</button>
 
             <button class="btn btn-outline-warning fw-bold btn-lg px-4 shadow-sm animate__animated animate__fadeIn"
             @click="
@@ -23,7 +23,7 @@
                 isOptionSelected = true;
               }
             "
-            >Delivery</button>
+            >Deliver to Me</button>
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@
                   searchedSessions = [];
                 }
               "
-              mr="16"
+              mr="10"
               v-show="isOptionSelected"
             >
               <i class="fas fa-angle-left"></i>

@@ -16,13 +16,13 @@
   </c-grid-item> -->
   <div>
     <li class="clearfix" @click="$emit('selectSession', session)">
-        <img :src="randomImage" alt="avatar">
-        <div class="about">
-            <div class="name">Session {{ trimmedId }}</div>
-            <div class="status">
-              <i class="fa fa-circle online"></i> {{ session.food }}
-            </div>
+      <img :src="randomImage" alt="avatar" />
+      <div class="about">
+        <div class="name">Session {{ trimmedId }}</div>
+        <div class="status">
+          <i class="fa fa-circle online"></i> {{ session.food }}
         </div>
+      </div>
     </li>
   </div>
 </template>
@@ -46,5 +46,4 @@ export default {
     },
   },
 };
-
 </script>

@@ -1,11 +1,11 @@
 <!--eslint-disable max-len-->
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
         <div class="card one">
-          <div class="header">
-            <h2 class="title text-center">Leaderboard</h2>
+          <div class="header text-center">
+            <h2 class="title text-center">Leaderboard with Highest Order Made</h2>
             <div></div>
           </div>
           <div class="profile">
@@ -14,24 +14,24 @@
               <i class="fas fa-caret-up" v-if="idx==1"></i>
               <img :src="randomImage" alt="" class="photo" v-if="idx==1">
               <p class="link" v-if="idx==1">{{item.name}}</p>
-              <p class="points" v-if="idx==1">{{item.orders}}</p>
+              <p class="points" v-if="idx==1">{{item.orders}} order(s)</p>
             </div>
             <div class="person first" :key="item.key" v-for="(item,idx) in details">
               <div class="num" v-if="idx==0">1</div>
               <i class="fas fa-crown" v-if="idx==0"></i>
               <img :src="randomImage" alt="" class="photo main" v-if="idx==0">
-              <p class="link" v-if="idx==0">{{item.name}}</p>
-              <p class="points" v-if="idx==0">{{item.orders}}</p>
+              <p class="link-winner" v-if="idx==0">{{item.name}}</p>
+              <p class="points-winner" v-if="idx==0">{{item.orders}} order(s)</p>
             </div>
             <div class="person third" :key="item.key" v-for="(item,idx) in details">
               <div class="num" v-if="idx==2">3</div>
               <i class="fas fa-caret-up" v-if="idx==2"></i>
               <img :src="randomImage" alt="" class="photo" v-if="idx==2">
               <p class="link" v-if="idx==2">{{item.name}}</p>
-              <p class="points" v-if="idx==2">{{item.orders}}</p>
+              <p class="points" v-if="idx==2">{{item.orders}} order(s)</p>
             </div>
           </div>
-          <div class="rest">
+          <div class="rest mb-5">
             <div class="others flex">
               <div class="rank">
                 <i class="fas fa-caret-up"></i>
@@ -39,8 +39,8 @@
               </div>
               <div class="info flex" :key="item.key" v-for="(item,idx) in details">
                 <img :src="randomImage" alt="" class="p_img" v-if="idx==3">
-                <p class="link" v-if="idx==3">{{details[3].name}}</p>
-                <p class="points" v-if="idx==3">{{details[3].orders}}</p>
+                <p class="link" v-if="idx==3">{{item.name}}</p>
+                <p class="points" v-if="idx==3">{{item.orders}}</p>
               </div>
             </div>
           </div>
@@ -67,24 +67,26 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 .container{
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-top:0; */
+  height: 100%;
 }
 
 .card{
-  min-height: 600px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 500px;
-  margin: 2rem;
-  border-radius: 15px;
+    background: #fff;
+    transition: .5s;
+    border: 0;
+    margin-bottom: 30px;
+    border-radius: .55rem;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card .header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 2rem;
   color: black;
 }
@@ -172,9 +174,19 @@ export default {
   font-size: 17px;
 }
 
+.link-winner {
+  font-size: 23px;
+  color: rgb(11, 138, 85);
+}
+
 .points{
   color: royalblue;
   font-size: 17px;
+}
+
+.points-winner{
+  color: royalblue;
+  font-size: 23px;
 }
 
 .second{
