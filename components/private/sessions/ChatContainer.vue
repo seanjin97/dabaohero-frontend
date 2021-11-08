@@ -334,19 +334,20 @@ export default {
 </script>
 
 <style>
-.container{
-    height: 100%;
+/* eslint-disable max-len */
+.container {
+  height: 100%;
 }
 .card {
-    background: #fff;
-    transition: .5s;
-    border: 0;
-    margin-bottom: 30px;
-    border-radius: .55rem;
-    position: relative;
-    width: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  background: #fff;
+  transition: 0.5s;
+  border: 0;
+  margin-bottom: 30px;
+  border-radius: 0.55rem;
+  position: relative;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 body {
   background-color: #f4f7f6;
 }
@@ -360,8 +361,8 @@ body {
   z-index: 7;
 }
 .chat-app .chat {
-    margin-left: 280px;
-    border-left: 1px solid #eaeaea;
+  margin-left: 280px;
+  border-left: 1px solid #eaeaea;
 }
 .people-list {
   -moz-transition: 0.5s;
@@ -553,6 +554,7 @@ body {
     overflow-x: auto;
   }
 }
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
   .chat-app .chat-list {
     height: 480px;
