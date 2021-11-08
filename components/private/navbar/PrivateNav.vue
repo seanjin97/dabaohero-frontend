@@ -1,128 +1,77 @@
 <!--eslint-disable max-len-->
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" width="100%">
-    <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <c-link
-        as="nuxt-link"
-        to="/"
-        fontSize="2xl"
-        color="yellow.400"
-        font-weight="bold"
-        :hover="{ color: 'gray.300' }"
-        @click="
-          () => {
-            isOptionSelected = false;
-            searchedSessions = [];
-            showDabaoerFlow = false;
-          }
-        "
-      >
-        DabaoHero
-      </c-link>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <c-box
-            as="ul"
-            color="gray.500"
-            d="flex"
-            align-items="center"
-            list-style-type="none"
-          >
-            <c-box as="li" mr="8" color="gray.400">
-              <nuxt-link to="/home#about">About</nuxt-link>
-            </c-box>
-            <nav-item
-              v-for="item in navBarItems"
-              :key="item"
-              :text="item"
-              :link="item"
-            />
-            <c-box as="li" mr="8">
-              <c-button @click="logout">Logout</c-button>
-            </c-box>
-            <c-box as="li">
+  <!-- <c-box as="nav" h="60px" px="4" d="flex" align-items="center" shadow="lg"> -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" width="100%">
+      <div class="container-fluid">
+
+        <a class="navbar-brand"
+          @click="
+            () => {
+              isOptionSelected = false;
+              searchedSessions = [];
+              showDabaoerFlow = false;
+            }
+          ">
+          <img src="./img/DabaoHero Logo.png" width="30" height="20" class="d-inline-block align-text-top">
+          <a href="/" class="fw-bold text-warning text-decoration-none">DabaoHero</a>
+        </a>
+
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link px-3" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="/sessions">Sessions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="/leaderboard">Leaderboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="/account">Account</a>
+            </li>
+            <!-- <c-box as="li">
               <c-icon-button
                 variant="ghost"
-                variant-color="gray[900]"
-                :aria-label="`Switch to ${
-                  colorMode === 'light' ? 'dark' : 'light'
-                } mode`"
+                variant-color="gray"
                 :icon="colorMode == 'light' ? 'moon' : 'sun'"
                 @click="$toggleColorMode"
               />
+            </c-box> -->
+            <c-box as="li" mr="5" px="3">
+              <c-button :_hover="{ color: 'yellow.400' }"
+              @click="logout">Logout</c-button>
             </c-box>
-          </c-box>
-        </ul>
-      </div>
+          </ul>
+        </div>
 
-      <c-box
-        as="ul"
-        color="gray.500"
-        d="flex"
-        align-items="center"
-        list-style-type="none"
-        ml="auto"
-      >
-        <c-box as="li" mr="8">
-          <c-link
-            as="nuxt-link"
-            to="/home#about"
-            color="gray.400"
-            :_hover="{ color: 'yellow.400' }"
-          >
-            About
-          </c-link>
-        </c-box>
-        <nav-item
-          v-for="item in navBarItems"
-          :key="item"
-          :text="item"
-          :link="item"
-        />
-        <c-box as="li" mr="8">
-          <c-button @click="logout">Logout</c-button>
-        </c-box>
-        <c-box as="li">
-          <c-icon-button
-            variant="ghost"
-            variant-color="gray[900]"
-            :aria-label="`Switch to ${
-              colorMode === 'light' ? 'dark' : 'light'
-            } mode`"
-            :icon="colorMode == 'light' ? 'moon' : 'sun'"
-            @click="$toggleColorMode"
-          />
-        </c-box>
-      </c-box>
     </div>
   </nav>
 </template>
 
 <script>
-import NavItem from '@/components/common/navbar/NavItem.vue';
 
 export default {
   name: 'PrivateNav',
   inject: ['$chakraColorMode', '$toggleColorMode'],
   props: ['showDabaoerFlow', 'isOptionSelected', 'searchedSessions'],
-  components: {
-    NavItem,
-  },
+
   data() {
     return {
-      navBarItems: ['sessions', 'leaderboard', 'account'],
+      navBarItems: ['about', 'sessions', 'leaderboard', 'account'],
     };
   },
   computed: {

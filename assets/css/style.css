@@ -1,6 +1,6 @@
 .btn-dabao {
     font-weight: 500;
-    font-size: 25px;
+    font-size: 20px;
     letter-spacing: 0.5px;
     display: inline-block;
     padding: 12px 30px;
@@ -23,7 +23,6 @@ client {
 }
 .client img {
 max-width: 45%;
-/* width: 300px; */
 transition: all 0.4s ease-in-out;
 display: inline-block;
 filter: grayscale(100);
