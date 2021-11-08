@@ -1,20 +1,50 @@
 <!--eslint-disable max-len-->
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" width="100%">
-    <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <c-link
+  <!-- <c-box as="nav" h="60px" px="4" d="flex" align-items="center" shadow="lg"> -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" width="100%">
+      <div class="container-fluid">
+
+        <a class="navbar-brand"
+        @click="
+          () => {
+            isOptionSelected = false;
+            searchedSessions = [];
+            showDabaoerFlow = false;
+          }
+        ">
+        <img src="./img/DabaoHero Logo.png" width="30" height="20"
+        class="d-inline-block align-text-top">
+         <a href="/" class="text-decoration-none">DabaoHero</a>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sessions">Sessions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/leaderboard">Leaderboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/account">Account</a>
+            </li>
+          </ul>
+        </div>
+
+      <!-- <c-link
         as="nuxt-link"
         to="/"
         fontSize="2xl"
@@ -105,24 +135,25 @@
             @click="$toggleColorMode"
           />
         </c-box>
-      </c-box>
+      </c-box> -->
     </div>
   </nav>
+  <!-- </c-box> -->
 </template>
 
 <script>
-import NavItem from '@/components/common/navbar/NavItem.vue';
+// import NavItem from '@/components/common/navbar/NavItem.vue';
 
 export default {
   name: 'PrivateNav',
   inject: ['$chakraColorMode', '$toggleColorMode'],
   props: ['showDabaoerFlow', 'isOptionSelected', 'searchedSessions'],
   components: {
-    NavItem,
+    // NavItem,
   },
   data() {
     return {
-      navBarItems: ['sessions', 'leaderboard', 'account'],
+      navBarItems: ['about', 'sessions', 'leaderboard', 'account'],
     };
   },
   computed: {

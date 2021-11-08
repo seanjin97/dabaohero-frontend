@@ -1,7 +1,7 @@
 <template>
   <c-theme-provider>
     <c-color-mode-provider #default="{ colorMode }">
-      <c-box as="section" v-bind="mainStyles[colorMode]">
+      <c-box v-bind="mainStyles[colorMode]">
         <c-reset />
         <private-nav />
         <nuxt />
@@ -45,7 +45,6 @@ export default {
           rel: 'stylesheet',
           href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css',
         },
-        // { rel: 'stylesheet', href: '../assets/css/style.css' },
       ],
       script: [
         {

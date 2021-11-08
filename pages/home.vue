@@ -3,18 +3,22 @@
   <div>
     <div class="container-fluid bg-grad">
       <div class="px-5 pt-5 my-1 text-center min-vh-75">
-        <h1 class="display-4 fw-bold animate__animated animate__fadeInLeft">
-          Welcome to DabaoHero.
-        </h1>
+
+        <div class="d-inline" style="max-height: 30vh;">
+            <img src="./img/DabaoHero.png" class="img-fluid mx-auto mb-2 animate__animated animate__slideInDown" width="500" height="300">
+        </div>
+
         <br />
         <div class="mx-auto">
           <p class="lead fw-normal text-break mb-6">
-            DabaoHero aims to promote hawker businesses in Singapore through
+            DabaoHero aims to promote hawker businesses in Singapore <br />through
             <strong>community-driven</strong> food deliveries, encouraging more
-            takeaways for our hawkers without involving them in the process.
+            takeaways for our hawkers <br />without involving them in the process.
           </p>
-          <br /><br />
-          <h2 class="fs-3 fw-normal mb-4">I want to..</h2>
+          <br />
+          <h1 class="fs-3 fw-light text-muted text-$yellow-300 my-4 animate__animated animate__fadeInLeft">
+          Welcome back, {{username}}.
+          </h1>
           <div
             v-if="!isOptionSelected"
             class="d-grid gap-2 d-sm-flex justify-content-sm-center"
