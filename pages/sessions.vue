@@ -48,16 +48,20 @@ export default {
       this.username = await this.$auth.$storage.getUniversal('username');
       const token = await this.$auth.strategy.token.get();
       const url = `${process.env.BACKEND_URL}/session/complete`;
-      const data = await this.$axios.$post(url,
+      const data = await this.$axios.$post(
+        url,
         {
           session_code: this.selectedChat,
           username: this.username,
         },
         {
           headers: { Authorisation: token },
-        });
+        },
+      );
       if (data) {
-        const updatedSession = this.sessions.filter((item) => item.key !== this.selectedChat);
+        const updatedSession = this.sessions.filter(
+          (item) => item.key !== this.selectedChat,
+        );
         this.sessions = updatedSession;
         console.log(this.sessions);
       }
@@ -73,8 +77,8 @@ export default {
         headers: { Authorisation: token },
       },
     );
-    console.log('hello');
-    console.log(this.sessions);
+    await this.$fire.auth.signInAnonymously();
+
     await this.$fire.database.ref('channels').on('value', (snapshot) => {
       const data = snapshot.val();
       this.messages = data;

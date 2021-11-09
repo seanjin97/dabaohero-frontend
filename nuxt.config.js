@@ -106,6 +106,7 @@ export default {
     },
     services: {
       database: true, // this is the realtime database service
+      auth: true,
     },
   },
 };
