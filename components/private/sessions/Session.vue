@@ -15,7 +15,7 @@
     </c-box>
   </c-grid-item> -->
   <div>
-    <li class="clearfix" @click="$emit('selectSession', session)">
+    <li class="clearfix" @click="$emit('selectSession', session), $emit('getDabaoer', session.dabaoer)">
       <img :src="randomImage" alt="avatar" />
       <div class="about">
         <div class="name">Session {{ trimmedId }}</div>

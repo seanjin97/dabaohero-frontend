@@ -292,9 +292,7 @@ export default {
     },
     filteredSession() {
       if (this.search.length !== 0) {
-        return this.sessions.filter((session) =>
-          session.key.slice(0, 5).match(this.search),
-        );
+        return this.sessions.filter((session) => session.key.slice(0, 5).match(this.search));
       }
       return this.sessions;
     },
@@ -320,8 +318,8 @@ export default {
         );
         if (sessionFound !== undefined) {
           return (
-            sessionFound.dabaoer !== this.username &&
-            !this.sessions.find((session) => session.key === this.sessionId)
+            sessionFound.dabaoer !== this.username
+            && !this.sessions.find((session) => session.key === this.sessionId)
               .is_active
           );
         }
@@ -555,7 +553,11 @@ body {
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and
+(min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 1) {
   .chat-app .chat-list {
     height: 480px;
     overflow-x: auto;
