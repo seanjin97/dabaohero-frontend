@@ -1,220 +1,209 @@
 <!--eslint-disable max-len-->
 <template>
   <div class="container">
-    <div class="row clearfix justify-content-center">
-      <div class="col-lg-12">
-        <div class="card chat-app">
-          <div id="plist" class="people-list">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="fa fa-search"></i
-                ></span>
-              </div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Search..."
-                v-model="search"
-              />
-            </div>
-            <ul class="list-unstyled chat-list mt-2 mb-0">
-              <session
-                v-for="(session, idx) of filteredSession"
-                :key="session.key"
-                :session="session"
-                v-model="index"
-                :value="idx"
-                @selectSession="$emit('selectSession', $event)"
-                @getDabaoer="getDabaoer"
-              />
-            </ul>
+  <div class="row clearfix justify-content-center">
+    <div class="col-lg-12">
+      <div class="card chat-app">
+        <div id="plist" class="people-list">
+          <div class="input-group" style="position:sticky; border: 20px solid white;z-index: 10; top: 0px; overflow: auto;">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search..."
+              v-model="search"
+            />
           </div>
-          <div class="chat">
-            <div class="chat-header clearfix">
-              <div class="row">
-                <div class="col-lg-6" v-show="sessionId">
-                  <a
-                    href="javascript:void(0);"
-                    data-toggle="modal"
-                    data-target="#view_info"
-                  >
-                    <img
-                      src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                      alt="avatar"
-                    />
-                  </a>
-                  <div class="chat-about">
-                    <h6 class="m-b-0">User {{ sessions }}</h6>
-                  </div>
-                </div>
-                <div class="col-lg-6 hidden-sm text-right">
-                  <a class="btn btn-outline-secondary" v-show="dabaoerCheck">
-                    <button @click="$emit('endSession')">
-                      <i class="fa fa-camera"></i>
-                    </button>
-                  </a>
-                </div>
-                <div
-                  class="col-lg-6 hidden-sm text-right"
-                  v-show="leecherCheck"
+          <ul class="list-unstyled chat-list mt-2 mb-0" style="z-index: 1;overflow:auto;">
+            <session
+              v-for="(session, idx) of filteredSession"
+              :key="session.key"
+              :session="session"
+              v-model="index"
+              :value="idx"
+              @selectSession="$emit('selectSession', $event)"
+              @getDabaoer="getDabaoer"
+            />
+          </ul>
+        </div>
+        <div class="chat">
+          <div class="chat-header clearfix">
+            <div class="row">
+              <div class="col-lg-6" v-show="sessionId">
+                <a
+                  href="javascript:void(0);"
+                  data-toggle="modal"
+                  data-target="#view_info"
                 >
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                    alt="avatar"
+                  />
+                </a>
+                <div class="chat-about">
+                  <h6 class="m-b-0 mt-2">{{dabaoer}}</h6>
+                </div>
+              </div>
+              <div class="col-lg-6 hidden-sm text-right">
+                <a class="btn btn-warning" v-if="dabaoerCheck">
+                  <button @click="$emit('endSession')">
+                    <i class="fas fa-hourglass-end" style="color: white;"></i>
+                  </button>
+                </a>
+                <a class="btn btn-warning" v-else-if="leecherCheck">
                   <button
-                    class="btn btn-primary"
-                    type="button"
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
                   >
-                    <i class="fa fa-camera"></i>
+                    <i class="fa fa-star"></i>
                   </button>
-                </div>
-                <div
-                  class="modal fade"
-                  id="exampleModal"
-                  tabindex="-1"
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                          Rate your dedicated dabaoer
-                        </h5>
-                        <button
-                          type="button"
-                          class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div class="modal-body">
-                        <form>
-                          <div class="mb-3">
-                            <div class="form-check form-check-inline">
-                              <input
-                                class="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="inlineRadio1"
-                                value="1"
-                                v-model="rating"
-                              />
-                              <label class="form-check-label" for="inlineRadio1"
-                                >1</label
-                              >
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input
-                                class="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="inlineRadio2"
-                                value="2"
-                                v-model="rating"
-                              />
-                              <label class="form-check-label" for="inlineRadio2"
-                                >2</label
-                              >
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input
-                                class="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="inlineRadio3"
-                                value="3"
-                                v-model="rating"
-                              />
-                              <label class="form-check-label" for="inlineRadio3"
-                                >3</label
-                              >
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input
-                                class="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="inlineRadio3"
-                                value="4"
-                                v-model="rating"
-                              />
-                              <label class="form-check-label" for="inlineRadio3"
-                                >4</label
-                              >
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input
-                                class="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="inlineRadio3"
-                                value="5"
-                                v-model="rating"
-                              />
-                              <label class="form-check-label" for="inlineRadio3"
-                                >5</label
-                              >
-                            </div>
+                </a>
+              </div>
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Rate your dedicated dabaoer
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="mb-3">
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="inlineRadioOptions"
+                              id="inlineRadio1"
+                              value="1"
+                              v-model="rating"
+                            />
+                            <label class="form-check-label" for="inlineRadio1"
+                              >1</label
+                            >
                           </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                          @click="$emit('endSession')"
-                        >
-                          Close
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-primary"
-                          @click="submitRating(), $emit('endSession')"
-                          data-bs-dismiss="modal"
-                        >
-                          Submit
-                        </button>
-                      </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="inlineRadioOptions"
+                              id="inlineRadio2"
+                              value="2"
+                              v-model="rating"
+                            />
+                            <label class="form-check-label" for="inlineRadio2"
+                              >2</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="inlineRadioOptions"
+                              id="inlineRadio3"
+                              value="3"
+                              v-model="rating"
+                            />
+                            <label class="form-check-label" for="inlineRadio3"
+                              >3</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="inlineRadioOptions"
+                              id="inlineRadio3"
+                              value="4"
+                              v-model="rating"
+                            />
+                            <label class="form-check-label" for="inlineRadio3"
+                              >4</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="inlineRadioOptions"
+                              id="inlineRadio3"
+                              value="5"
+                              v-model="rating"
+                            />
+                            <label class="form-check-label" for="inlineRadio3"
+                              >5</label
+                            >
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                        @click="$emit('endSession')"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        @click="submitRating(), $emit('endSession')"
+                        data-bs-dismiss="modal"
+                      >
+                        Submit
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="chat-history">
-              <div v-show="!sessionId">
-                <h1 style="font-size: 30px" class="text-center">
-                  Select a chat to get started
-                </h1>
-              </div>
-              <ul class="m-b-0">
-                <li class="clearfix">
-                  <message
-                    v-for="(message, idx) in messages"
-                    :key="idx"
-                    :message="message"
-                    :username="username"
-                  />
-                </li>
-              </ul>
+          </div>
+          <div class="chat-history">
+            <div v-show="!sessionId">
+              <h1 style="font-size: 30px" class="text-center">
+                Select a chat to get started
+              </h1>
             </div>
-            <div class="chat-message clearfix">
-              <div class="input-group mb-0">
-                <input
-                  type="text"
-                  class="form-control"
-                  @keyup.enter="emitMessage()"
-                  v-model="newMessage"
-                  placeholder="Enter message"
+            <ul class="m-b-0">
+              <li class="clearfix">
+                <message
+                  v-for="(message, idx) in messages"
+                  :key="idx"
+                  :message="message"
+                  :username="username"
                 />
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <button @click="emitMessage()">
-                      <i class="fa fa-send"></i>
-                    </button>
-                  </span>
-                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="chat-message clearfix">
+            <div class="input-group mb-0">
+              <input
+                type="text"
+                class="form-control"
+                @keyup.enter="emitMessage()"
+                v-model="newMessage"
+                placeholder="Enter message"
+              />
+              <div class="input-group-prepend">
+                <span class="input-group-text btn btn-warning">
+                  <button @click="emitMessage()">
+                    <i class="fa fa-send" style="color: white;"></i>
+                  </button>
+                </span>
               </div>
             </div>
           </div>
@@ -222,6 +211,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -292,9 +282,7 @@ export default {
     },
     filteredSession() {
       if (this.search.length !== 0) {
-        return this.sessions.filter((session) =>
-          session.key.slice(0, 5).match(this.search),
-        );
+        return this.sessions.filter((session) => session.key.slice(0, 5).match(this.search));
       }
       return this.sessions;
     },
@@ -320,8 +308,8 @@ export default {
         );
         if (sessionFound !== undefined) {
           return (
-            sessionFound.dabaoer !== this.username &&
-            !this.sessions.find((session) => session.key === this.sessionId)
+            sessionFound.dabaoer !== this.username
+            && !this.sessions.find((session) => session.key === this.sessionId)
               .is_active
           );
         }
@@ -357,7 +345,6 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  padding: 20px;
   z-index: 7;
 }
 .chat-app .chat {
@@ -373,7 +360,7 @@ body {
   overflow: auto;
 }
 .people-list .chat-list li {
-  padding: 10px 15px;
+  padding: 10px 25px;
   list-style: none;
   border-radius: 3px;
 }
@@ -555,7 +542,8 @@ body {
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 768px) and
+(max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
   .chat-app .chat-list {
     height: 480px;
     overflow-x: auto;

@@ -1,6 +1,7 @@
 <template>
   <c-box>
-    <c-button v-show="!apiCalled" m="4" @click="createSession">Submit</c-button>
+    <button type="button" class="btn btn-dabao fw-bold
+    btn-lg" v-show="!apiCalled" m="4" @click="createSession">Submit</button>
     <c-spinner
       m="4"
       v-show="apiCalled && !apiSuccess"
@@ -11,7 +12,15 @@
     />
     <c-popover>
       <c-popover-trigger>
-        <c-button m="4" v-show="apiCalled && apiSuccess">Chat</c-button>
+        <c-button m="4" class="btn btn-dabao"
+        fontWeight="bold" size="lg"
+        :_hover="{
+        color: '#fff',
+        fontSize: '20px',
+        size: 'xxl',
+        border: '10px', paddingBottom:'2',
+        borderColor:'#ffc107', height:'65px'}"
+        v-show="apiCalled && apiSuccess">Chat</c-button>
       </c-popover-trigger>
       <c-popover-content z-index="4">
         <c-popover-arrow />
@@ -22,15 +31,15 @@
             >This will bring you to the sessions page. Do you want to
             continue?</c-text
           >
-          <c-button m="4">
+          <button class="m-3 btn btn-dabao fw-bold btn-lg">
             <c-link
               as="nuxt-link"
               to="sessions"
-              :_hover="{ color: 'blue.500' }"
+              :_hover="{textDecoration:'none', color:'white'}"
             >
-              leggo
+              Confirm?
             </c-link>
-          </c-button>
+          </button>
         </c-popover-body>
       </c-popover-content>
     </c-popover>
@@ -41,7 +50,7 @@
 export default {
   name: 'Session',
   props: {
-    field: Array,
+    field: Object,
   },
   data() {
     return {

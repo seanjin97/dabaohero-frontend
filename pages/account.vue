@@ -41,7 +41,6 @@ export default {
       {
         headers: { Authorisation: token },
       });
-    console.log(data);
     this.userData = data;
     this.loginDate = this.lastLogin();
     this.active_sessions = this.activeSessions();
