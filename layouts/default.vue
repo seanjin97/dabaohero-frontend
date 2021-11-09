@@ -48,6 +48,10 @@ export default {
       ],
       script: [
         {
+          src: 'https://code.jquery.com/jquery-3.2.1.slim.min.js',
+          type: 'text/javascript',
+        },
+        {
           src: 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js',
           type: 'text/javascript',
         },
