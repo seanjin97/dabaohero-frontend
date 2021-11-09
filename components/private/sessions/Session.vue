@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sessionList">
     <li class="clearfix" @click="$emit('selectSession', session), $emit('getDabaoer', session.dabaoer)">
       <img :src="randomImage" alt="avatar" />
       <div class="about">
@@ -32,3 +32,18 @@ export default {
   },
 };
 </script>
+
+<style>
+@media (max-width: 767px) {
+    .sessionList img {
+        width: 45px;
+        height: 35px;
+    }
+    .name {
+        display: none;
+    }
+    .status {
+        display: none;
+    }
+}
+</style>

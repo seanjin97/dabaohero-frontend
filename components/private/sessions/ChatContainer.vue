@@ -5,7 +5,7 @@
     <div class="col-lg-12">
       <div class="card chat-app">
         <div id="plist" class="people-list">
-          <div class="input-group" style="position:sticky; border: 20px solid white;z-index: 10; top: 0px; overflow: auto;">
+          <div class="searchBar input-group" style="position:sticky; border: 20px solid white;z-index: 10; top: 0px;">
             <input
               type="text"
               class="form-control"
@@ -13,7 +13,7 @@
               v-model="search"
             />
           </div>
-          <ul class="list-unstyled chat-list mt-2 mb-0" style="z-index: 1;overflow:auto;">
+          <ul class="list-unstyled chat-list mt-2 mb-0" style="z-index: 1;">
             <session
               v-for="(session, idx) of filteredSession"
               :key="session.key"
@@ -300,7 +300,6 @@ export default {
     },
     leecherCheck() {
       // return this.sessions.find((session) => session.key === this.sessionId).dabaoer
-      // !== this.username
       // && !this.sessions.find((session) => session.key === this.sessionId).is_active;
       if (this.sessions.length > 0) {
         const sessionFound = this.sessions.find(
@@ -509,36 +508,32 @@ body {
   height: 0;
 }
 @media only screen and (max-width: 767px) {
-  .chat-app .people-list {
-    height: 465px;
-    width: 100%;
-    overflow-x: auto;
-    background: #fff;
-    left: -400px;
+  .searchBar {
     display: none;
   }
-  .chat-app .people-list.open {
+  .chat-app .people-list {
+    width: 100px;
+    position: absolute;
     left: 0;
+    top: 0;
+    z-index: 7;
   }
   .chat-app .chat {
-    margin: 0;
-  }
-  .chat-app .chat .chat-header {
-    border-radius: 0.55rem 0.55rem 0 0;
-  }
-  .chat-app .chat-history {
-    height: 300px;
-    overflow-x: auto;
+    margin-left: 80px;
+    border-left: 1px solid #eaeaea;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .chat-app .chat-list {
     height: 650px;
-    overflow-x: auto;
   }
   .chat-app .chat-history {
     height: 600px;
-    overflow-x: auto;
+    /* overflow-x: auto; */
+  }
+  .chat-app .people-list {
+    height: 685px;
+    overflow-y: auto;
   }
 }
 
