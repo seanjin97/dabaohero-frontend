@@ -9,6 +9,7 @@
         :sessions="sessions"
         @selectSession="openChat($event)"
         @endSession="endSession()"
+        :sessionsLoading="sessionsLoading"
       />
     </div>
   </c-box>
@@ -25,6 +26,7 @@ export default {
       sessions: [],
       selectedChat: null,
       messages: null,
+      sessionsLoading: true,
     };
   },
   methods: {
@@ -63,6 +65,8 @@ export default {
           (item) => item.key !== this.selectedChat,
         );
         this.sessions = updatedSession;
+        this.selectedChat = null;
+
         console.log(this.sessions);
       }
     },
@@ -77,6 +81,7 @@ export default {
         headers: { Authorisation: token },
       },
     );
+    this.sessionsLoading = false;
     await this.$fire.auth.signInAnonymously();
 
     await this.$fire.database.ref('channels').on('value', (snapshot) => {

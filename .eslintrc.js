@@ -17,7 +17,10 @@ module.exports = {
   // add your custom rules here
   rules: {
     'no-console': 'off',
-    'max-len': ['error', { code: 120 }],
+    'max-len': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'operator-linebreak': 'off',
+    'function-paren-newline': 'off',
   },
   settings: {
     'import/resolver': {

@@ -1,11 +1,18 @@
 <template>
   <div class="sessionList">
-    <li class="clearfix" @click="$emit('selectSession', session), $emit('getDabaoer', session.dabaoer)">
-      <img :src="randomImage" alt="avatar" />
+    <li
+      class="clearfix"
+      @click="
+        $emit('selectSession', session), $emit('getDabaoer', session.dabaoer)
+      "
+    >
+      <img :src="randomImage" alt="avatar" aria-label="profile-pic" />
       <div class="about">
         <div class="name">Session {{ trimmedId }}</div>
         <div class="status">
-          <i class="fa fa-circle online"></i> {{ session.food }}
+          <i v-if="session.is_active" class="fa fa-circle online"></i>
+          <i v-else class="fa fa-circle offline"></i>
+          {{ session.food }}
         </div>
       </div>
     </li>
@@ -35,15 +42,15 @@ export default {
 
 <style>
 @media (max-width: 767px) {
-    .sessionList img {
-        width: 45px;
-        height: 35px;
-    }
-    .name {
-        display: none;
-    }
-    .status {
-        display: none;
-    }
+  .sessionList img {
+    width: 45px;
+    height: 35px;
+  }
+  .name {
+    display: none;
+  }
+  .status {
+    display: none;
+  }
 }
 </style>
