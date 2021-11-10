@@ -38,10 +38,10 @@
       <c-box class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link px-3" href="/">Home</a>
+            <a class="nav-link px-3" href="/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link px-3" href="#about">About</a>
+            <a class="nav-link px-3" href="/home#about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link px-3" href="/sessions">Sessions</a>
