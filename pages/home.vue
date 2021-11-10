@@ -73,7 +73,7 @@
                       searchedSessions = [];
                     }
                   "
-                  mr="10"
+                  mr="1"
                   v-show="isOptionSelected"
                 >
                   <i class="fas fa-angle-left"></i>
@@ -163,7 +163,6 @@ export default {
         headers: { Authorisation: token },
       });
       this.searchedSessions = data;
-      console.log(data);
     },
 
     getKey(x) {

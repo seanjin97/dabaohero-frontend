@@ -1,24 +1,39 @@
 <!--eslint-disable max-len-->
 <template>
-  <div class="container">
-    <div class="row clearfix justify-content-center">
-      <div class="col-lg-12">
-        <div class="card chat-app">
-          <div id="plist" class="people-list">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="fa fa-search"></i
-                ></span>
-              </div>
+  <c-box class="container">
+    <c-box class="row clearfix justify-content-center">
+      <c-box class="col-lg-12">
+        <c-box class="card chat-app">
+          <c-box class="people-list" v-show="sessionsLoading">
+            <c-flex justify="center">
+              <c-spinner
+                mt="12"
+                thickness="4px"
+                speed="0.65s"
+                empty-color="green.200"
+                color="vue.500"
+                size="xl"
+              />
+            </c-flex>
+          </c-box>
+          <c-box v-show="!sessionsLoading" id="plist" class="people-list">
+            <c-box
+              class="searchBar input-group"
+              style="
+                position: sticky;
+                border: 20px solid white;
+                z-index: 10;
+                top: 0px;
+              "
+            >
               <input
                 type="text"
                 class="form-control"
                 placeholder="Search..."
                 v-model="search"
               />
-            </div>
-            <ul class="list-unstyled chat-list mt-2 mb-0">
+            </c-box>
+            <ul class="list-unstyled chat-list mt-2 mb-0" style="z-index: 1">
               <session
                 v-for="(session, idx) of filteredSession"
                 :key="session.key"
@@ -29,11 +44,11 @@
                 @getDabaoer="getDabaoer"
               />
             </ul>
-          </div>
-          <div class="chat">
-            <div class="chat-header clearfix">
-              <div class="row">
-                <div class="col-lg-6" v-show="sessionId">
+          </c-box>
+          <c-box class="chat">
+            <c-box class="chat-header clearfix">
+              <c-box class="row">
+                <c-box class="col-lg-6" v-show="sessionId">
                   <a
                     href="javascript:void(0);"
                     data-toggle="modal"
@@ -44,30 +59,25 @@
                       alt="avatar"
                     />
                   </a>
-                  <div class="chat-about">
-                    <h6 class="m-b-0">User {{ sessions }}</h6>
-                  </div>
-                </div>
-                <div class="col-lg-6 hidden-sm text-right">
-                  <a class="btn btn-outline-secondary" v-show="dabaoerCheck">
+                  <c-box class="chat-about">
+                    <h6 class="m-b-0 mt-2">{{ dabaoer }}</h6>
+                  </c-box>
+                </c-box>
+                <c-box class="col-lg-6 hidden-sm text-right">
+                  <a class="btn btn-warning" v-if="dabaoerCheck">
                     <button @click="$emit('endSession')">
-                      <i class="fa fa-camera"></i>
+                      <i class="fas fa-hourglass-end" style="color: white"></i>
                     </button>
                   </a>
-                </div>
-                <div
-                  class="col-lg-6 hidden-sm text-right"
-                  v-show="leecherCheck"
-                >
-                  <button
-                    class="btn btn-primary"
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                  >
-                    <i class="fa fa-camera"></i>
-                  </button>
-                </div>
+                  <a class="btn btn-warning" v-else-if="leecherCheck">
+                    <button
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      <i class="fa fa-star"></i>
+                    </button>
+                  </a>
+                </c-box>
                 <div
                   class="modal fade"
                   id="exampleModal"
@@ -180,8 +190,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </c-box>
+            </c-box>
             <div class="chat-history">
               <div v-show="!sessionId">
                 <h1 style="font-size: 30px" class="text-center">
@@ -199,7 +209,10 @@
                 </li>
               </ul>
             </div>
-            <div class="chat-message clearfix">
+            <div
+              class="chat-message clearfix"
+              v-show="sessionId && sessionActiveCheck"
+            >
               <div class="input-group mb-0">
                 <input
                   type="text"
@@ -209,19 +222,25 @@
                   placeholder="Enter message"
                 />
                 <div class="input-group-prepend">
-                  <span class="input-group-text">
+                  <span class="input-group-text btn btn-warning">
                     <button @click="emitMessage()">
-                      <i class="fa fa-send"></i>
+                      <i class="fa fa-send" style="color: white"></i>
                     </button>
                   </span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+            <c-box
+              m="4"
+              class="chat-message clearfix"
+              v-show="!sessionId || !sessionActiveCheck"
+            >
+            </c-box>
+          </c-box>
+        </c-box>
+      </c-box>
+    </c-box>
+  </c-box>
 </template>
 
 <script>
@@ -247,6 +266,7 @@ export default {
     username: String,
     sessions: Array,
     id: Number,
+    sessionsLoading: Boolean,
   },
   methods: {
     emitMessage() {
@@ -312,7 +332,6 @@ export default {
     },
     leecherCheck() {
       // return this.sessions.find((session) => session.key === this.sessionId).dabaoer
-      // !== this.username
       // && !this.sessions.find((session) => session.key === this.sessionId).is_active;
       if (this.sessions.length > 0) {
         const sessionFound = this.sessions.find(
@@ -326,6 +345,15 @@ export default {
           );
         }
         return null;
+      }
+      return null;
+    },
+    sessionActiveCheck() {
+      if (this.sessions.length > 0 && this.sessionId) {
+        const selectedSession = this.sessions.find(
+          (session) => session.key === this.sessionId,
+        );
+        return selectedSession.is_active;
       }
       return null;
     },
@@ -357,7 +385,6 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  padding: 20px;
   z-index: 7;
 }
 .chat-app .chat {
@@ -373,7 +400,7 @@ body {
   overflow: auto;
 }
 .people-list .chat-list li {
-  padding: 10px 15px;
+  padding: 10px 25px;
   list-style: none;
   border-radius: 3px;
 }
@@ -446,7 +473,7 @@ body {
   padding-left: 6px;
 }
 .chat .chat-history .message {
-  color: #444;
+  /* color: #444; */
   padding: 18px 20px;
   line-height: 26px;
   font-size: 16px;
@@ -467,9 +494,7 @@ body {
   border-width: 10px;
   margin-left: -10px;
 }
-.chat .chat-history .my-message {
-  background: #efefef;
-}
+
 .chat .chat-history .my-message:after {
   bottom: 100%;
   left: 30px;
@@ -479,7 +504,7 @@ body {
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-bottom-color: #efefef;
+  /* border-bottom-color: black; */
   border-width: 10px;
   margin-left: -10px;
 }
@@ -522,36 +547,32 @@ body {
   height: 0;
 }
 @media only screen and (max-width: 767px) {
-  .chat-app .people-list {
-    height: 465px;
-    width: 100%;
-    overflow-x: auto;
-    background: #fff;
-    left: -400px;
+  .searchBar {
     display: none;
   }
-  .chat-app .people-list.open {
+  .chat-app .people-list {
+    width: 100px;
+    position: absolute;
     left: 0;
+    top: 0;
+    z-index: 7;
   }
   .chat-app .chat {
-    margin: 0;
-  }
-  .chat-app .chat .chat-header {
-    border-radius: 0.55rem 0.55rem 0 0;
-  }
-  .chat-app .chat-history {
-    height: 300px;
-    overflow-x: auto;
+    margin-left: 80px;
+    border-left: 1px solid #eaeaea;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .chat-app .chat-list {
     height: 650px;
-    overflow-x: auto;
   }
   .chat-app .chat-history {
     height: 600px;
-    overflow-x: auto;
+    /* overflow-x: auto; */
+  }
+  .chat-app .people-list {
+    height: 685px;
+    overflow-y: auto;
   }
 }
 

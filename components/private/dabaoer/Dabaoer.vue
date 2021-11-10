@@ -1,31 +1,28 @@
 <template>
   <c-box>
-    <c-form-control is-required>
-      <c-input
+      <input
         type="number"
         v-model="field[0]"
         placeholder="Enter postal code"
-        size="lg"
-        mb="3"
+        style="width: 230px;"
+        class="form-control form-control-lg mb-3"
       />
-      <c-input
+      <input
         type="text"
         v-model="field[1]"
         placeholder="Enter food"
-        size="lg"
-        mb="3"
+        style="width: 230px;"
+        class="form-control form-control-lg mb-3"
       />
-      <c-input
-        type="time"
-        v-model="field[2]"
+      <div class="md-form">
+        <input type="time" v-model="field[2]"
         placeholder="Enter departure time"
-        size="lg"
-        mb="3"
-      />
+        style="width: 230px;"
+        class="form-control form-control-lg mb-3">
+      </div>
       <session
         :field = "field"
       />
-    </c-form-control>
   </c-box>
 </template>
 

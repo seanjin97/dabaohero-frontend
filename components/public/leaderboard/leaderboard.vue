@@ -121,7 +121,7 @@ export default {
 }
 
 .photo{
-  width: 130px;
+  width: 120px;
   background: black;
   border-radius: 50%;
   border: 5px solid royalblue;
@@ -130,7 +130,7 @@ export default {
 }
 
 .main{
-  width: 190px;
+  width: 150px;
 }
 
 .profile{
