@@ -15,7 +15,7 @@
             takeaways from our hawkers without involving them in the process.
           </div>
           <br />
-          <h1 class="fs-3 fw-light text-muted text-$yellow-300 my-4 animate__animated animate__fadeInLeft">
+          <h1 class="fs-4 fw-light text-muted text-$yellow-300 mb-4 animate__animated animate__fadeInLeft">
           Welcome back, {{username}}.
           </h1>
           <div
