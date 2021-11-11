@@ -43,6 +43,7 @@
               Dabao
             </button>
             <button
+              type="button"
               class="
                 btn-dabao
                 fw-bold
@@ -97,6 +98,8 @@
     </div>
     <br />
     <Feature />
+    <br />
+    <Specials />
     <br />
     <Partners />
 

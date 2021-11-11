@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
   <nav class="navbar fixed-top navbar-expand-lg navbar-light shadow-sm" width="100%"
-  style="background-color: #fffef2e1">
+  style="background-color: #fffef2ee">
     <div class="container-fluid">
       <c-link
         as="nuxt-link"
@@ -70,11 +70,6 @@ export default {
   inject: ['$chakraColorMode', '$toggleColorMode'],
   props: ['showDabaoerFlow', 'isOptionSelected', 'searchedSessions'],
 
-  // data() {
-  //   return {
-  //     navBarItems: ['about', 'sessions', 'leaderboard', 'account'],
-  //   };
-  // },
   computed: {
     colorMode() {
       return this.$chakraColorMode();

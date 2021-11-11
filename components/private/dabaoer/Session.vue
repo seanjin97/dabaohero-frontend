@@ -1,7 +1,7 @@
 <template>
   <c-box>
     <button type="button" class="btn btn-dabao fw-bold
-    btn-lg" v-show="!apiCalled" m="4" @click="createSession">Submit</button>
+    btn-lg animate__animated animate__fadeInDown" v-show="!apiCalled" m="4" @click="createSession">Submit</button>
     <c-spinner
       m="4"
       v-show="apiCalled && !apiSuccess"
