@@ -46,7 +46,7 @@ section {
 
 .section-bg, .services .icon-box {
     background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,0) 14%, rgba(255,192,0,0.2536108193277311) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 5%, rgba(255,192,0,0.2536108193277311) 100%);
 }
 
 .bg-grad {
@@ -56,6 +56,7 @@ section {
 
 /* nav bar */
 a.nav-link:hover {
-    transition: all 0.2s ease-in-out;
     transform: scale(1.1);
+    font-weight: 600;
+    color: #ffc107 !important;
 }

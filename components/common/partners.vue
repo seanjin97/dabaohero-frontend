@@ -6,7 +6,7 @@
       <div class="row">
 
         <div class="col-lg-3 col-md-6 col-6 d-flex align-items-center justify-content-center">
-        <img src="./img/partners/SGUnited Logo.png" class="img-fluid">
+        <img src="./img/partners/SGUnited Logo.png" class="img-fluid" style="opacity:80%">
         </div>
 
         <div class="col-lg-3 col-md-6 col-6 d-flex align-items-center justify-content-center">
@@ -14,11 +14,11 @@
         </div>
 
         <div class="col-lg-3 col-md-6 col-6 d-flex align-items-center justify-content-center">
-        <img src="./img/partners/change.png" class="img-fluid">
+        <img src="./img/partners/bettercircle.png" class="img-fluid">
         </div>
 
         <div class="col-lg-3 col-md-6 col-6 d-flex align-items-center justify-content-center">
-        <img src="./img/partners/bettercircle.png" class="img-fluid">
+        <img src="./img/partners/bettersg.png" class="img-fluid" style="opacity:80%">
         </div>
 
       </div>
