@@ -2,7 +2,7 @@
   <c-box>
     <button
       type="button"
-      class="btn btn-dabao fw-bold btn-lg"
+      class="btn btn-dabao fw-bold btn-lg animate__animated animate__fadeInDown"
       v-show="!apiCalled"
       m="4"
       @click="createSession"

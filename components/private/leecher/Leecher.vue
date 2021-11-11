@@ -9,7 +9,11 @@
             placeholder="Enter postal code"
             style="width: 230px"
             @keyup.enter="$emit('getPostal', field)"
-            class="form-control form-control-lg mb-3"
+            class="
+              form-control form-control-lg
+              mb-3
+              animate__animated animate__fadeInLeft
+            "
           />
         </div>
       </div>
@@ -26,7 +30,13 @@
           <button
             v-else
             type="button"
-            class="m-3 btn-dabao fw-bold btn-lg"
+            class="
+              m-3
+              btn-dabao
+              fw-bold
+              btn-lg
+              animate__animated animate__fadeInDown
+            "
             @click="$emit('getPostal', field)"
           >
             Submit

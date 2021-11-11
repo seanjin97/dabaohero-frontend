@@ -1,12 +1,12 @@
-<!--eslint-disable max-len-->
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" width="100%">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light shadow-sm" width="100%"
+  style="background-color: #fffef2ee">
     <div class="container-fluid">
       <c-link
         as="nuxt-link"
         to="/home"
-        class="fw-bold text-warning text-decoration-none"
+        class="fw-bold fs-5 text-warning text-decoration-none"
         color="gray.400"
         :_focus="{ outline: 'none' }"
         @click="
@@ -19,10 +19,11 @@
       >
         <img
           src="./img/DabaoHero Logo.png"
-          width="30"
-          height="20"
-          class="d-inline-block align-text-top"
+          width="25"
+          height="25"
+          class="d-inline-block align-text-center"
           aria-label="logo"
+          style = "position:relative; top:-2px;"
         />
         DabaoHero
       </c-link>
@@ -39,7 +40,7 @@
       <c-box class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link px-3" href="/home">Home</a>
+            <a class="nav-link px-3 " href="/home">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link px-3" href="/home#about">About</a>
@@ -70,11 +71,6 @@ export default {
   inject: ['$chakraColorMode', '$toggleColorMode'],
   props: ['showDabaoerFlow', 'isOptionSelected', 'searchedSessions'],
 
-  data() {
-    return {
-      navBarItems: ['about', 'sessions', 'leaderboard', 'account'],
-    };
-  },
   computed: {
     colorMode() {
       return this.$chakraColorMode();
