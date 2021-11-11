@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm" width="100%">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light shadow-sm" width="100%"
+  style="background-color: #fffef2e1">
     <div class="container-fluid">
       <c-link
         as="nuxt-link"

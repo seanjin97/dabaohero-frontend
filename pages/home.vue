@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <div>
     <div class="container-fluid bg-grad">
@@ -10,11 +9,11 @@
 
         <br />
         <div class="mx-auto">
-          <p class="lead fw-normal text-break mb-6">
-            DabaoHero aims to promote hawker businesses in Singapore <br />through
+          <div class="lead fw-normal mx-auto mb-6" style="max-width:600px">
+            DabaoHero aims to promote hawker businesses in Singapore through
             <strong>community-driven</strong> food deliveries, encouraging more
-            takeaways for our hawkers <br />without involving them in the process.
-          </p>
+            takeaways from our hawkers without involving them in the process.
+          </div>
           <br />
           <h1 class="fs-3 fw-light text-muted text-$yellow-300 my-4 animate__animated animate__fadeInLeft">
           Welcome back, {{username}}.

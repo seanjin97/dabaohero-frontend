@@ -15,7 +15,7 @@
     background: #ffc107;
     color: #fff;
     font-size: 24px;
-    border: 10px solid #ffc107 ;
+    border: 10px solid #ffc107;
 }
 
 /* Partners */
@@ -56,7 +56,7 @@ section {
 
 /* nav bar */
 a.nav-link:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     font-weight: 600;
     transition: all 0.1s ease-in-out;
     color: #ffc107 !important;
