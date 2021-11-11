@@ -45,18 +45,19 @@ section {
 }
 
 .section-bg, .services .icon-box {
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,0) 5%, rgba(255,192,0,0.2536108193277311) 100%);
+    background: rgb(255,254,246);
+    background: linear-gradient(180deg, rgba(255,254,246,0.2773984593837535) 2%, rgba(255,192,0,0.2536108193277311) 100%);
 }
 
 .bg-grad {
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,0) 14%, rgba(255,192,0,0.2536108193277311) 100%);
+    background: rgb(255,254,246);
+    background: linear-gradient(0deg, rgba(255,254,246,0.2773984593837535) 20%, rgba(255,192,0,0.2536108193277311) 100%);
 }
 
 /* nav bar */
 a.nav-link:hover {
     transform: scale(1.1);
     font-weight: 600;
+    transition: all 0.1s ease-in-out;
     color: #ffc107 !important;
 }
