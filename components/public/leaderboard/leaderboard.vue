@@ -1,34 +1,55 @@
 <!--eslint-disable max-len-->
 <template>
-  <div class="container">
+  <div class="container main-container">
     <div class="row justify-content-center">
       <div class="col-lg-12">
         <div class="card one">
           <div class="header text-center">
-            <h2 class="title text-center">Leaderboard with Highest Order Made</h2>
+            <h2 class="title text-center">
+              Leaderboard with Highest Order Made
+            </h2>
             <div></div>
           </div>
           <div class="profile">
-            <div class="person second" :key="item.key" v-for="(item,idx) in details">
-              <div class="num" v-if="idx==1">2</div>
-              <i class="fas fa-caret-up" v-if="idx==1"></i>
-              <img :src="randomImage" alt="" class="photo" v-if="idx==1">
-              <p class="link" v-if="idx==1">{{item.name}}</p>
-              <p class="points" v-if="idx==1">{{item.orders}} order(s)</p>
+            <div
+              class="person second"
+              :key="item.key"
+              v-for="(item, idx) in details"
+            >
+              <div class="num" v-if="idx == 1">2</div>
+              <i class="fas fa-caret-up" v-if="idx == 1"></i>
+              <img :src="randomImage" alt="" class="photo" v-if="idx == 1" />
+              <p class="link" v-if="idx == 1">{{ item.name }}</p>
+              <p class="points" v-if="idx == 1">{{ item.orders }} order(s)</p>
             </div>
-            <div class="person first" :key="item.key" v-for="(item,idx) in details">
-              <div class="num" v-if="idx==0">1</div>
-              <i class="fas fa-crown" v-if="idx==0"></i>
-              <img :src="randomImage" alt="" class="photo main" v-if="idx==0">
-              <p class="link-winner" v-if="idx==0">{{item.name}}</p>
-              <p class="points-winner" v-if="idx==0">{{item.orders}} order(s)</p>
+            <div
+              class="person first"
+              :key="item.key"
+              v-for="(item, idx) in details"
+            >
+              <div class="num" v-if="idx == 0">1</div>
+              <i class="fas fa-crown" v-if="idx == 0"></i>
+              <img
+                :src="randomImage"
+                alt=""
+                class="photo main"
+                v-if="idx == 0"
+              />
+              <p class="link-winner" v-if="idx == 0">{{ item.name }}</p>
+              <p class="points-winner" v-if="idx == 0">
+                {{ item.orders }} order(s)
+              </p>
             </div>
-            <div class="person third" :key="item.key" v-for="(item,idx) in details">
-              <div class="num" v-if="idx==2">3</div>
-              <i class="fas fa-caret-up" v-if="idx==2"></i>
-              <img :src="randomImage" alt="" class="photo" v-if="idx==2">
-              <p class="link" v-if="idx==2">{{item.name}}</p>
-              <p class="points" v-if="idx==2">{{item.orders}} order(s)</p>
+            <div
+              class="person third"
+              :key="item.key"
+              v-for="(item, idx) in details"
+            >
+              <div class="num" v-if="idx == 2">3</div>
+              <i class="fas fa-caret-up" v-if="idx == 2"></i>
+              <img :src="randomImage" alt="" class="photo" v-if="idx == 2" />
+              <p class="link" v-if="idx == 2">{{ item.name }}</p>
+              <p class="points" v-if="idx == 2">{{ item.orders }} order(s)</p>
             </div>
           </div>
           <div class="rest mb-5">
@@ -37,10 +58,14 @@
                 <i class="fas fa-caret-up"></i>
                 <p class="num">4</p>
               </div>
-              <div class="info flex" :key="item.key" v-for="(item,idx) in details">
-                <img :src="randomImage" alt="" class="p_img" v-if="idx==3">
-                <p class="link" v-if="idx==3">{{item.name}}</p>
-                <p class="points" v-if="idx==3">{{item.orders}}</p>
+              <div
+                class="info flex"
+                :key="item.key"
+                v-for="(item, idx) in details"
+              >
+                <img :src="randomImage" alt="" class="p_img" v-if="idx == 3" />
+                <p class="link" v-if="idx == 3">{{ item.name }}</p>
+                <p class="points" v-if="idx == 3">{{ item.orders }}</p>
               </div>
             </div>
           </div>
@@ -66,37 +91,37 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
-.container{
+.container {
   /* display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   margin-top:0; */
-  height: 100%;
+  height: 100vh;
 }
 
-.card{
-    background: #fff;
-    transition: .5s;
-    border: 0;
-    margin-bottom: 30px;
-    border-radius: .55rem;
-    position: relative;
-    width: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.card {
+  background: #fff;
+  transition: 0.5s;
+  border: 0;
+  margin-bottom: 30px;
+  border-radius: 0.55rem;
+  position: relative;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card .header{
+.card .header {
   padding: 2rem;
   color: black;
 }
 
-.card .header .title{
+.card .header .title {
   font-weight: 300;
   font-size: 20px;
 }
 
-.one .sort{
+.one .sort {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,23 +129,23 @@ export default {
   font-size: 14.1px;
 }
 
-.one .sort .day{
+.one .sort .day {
   padding: 0.4rem 1.2rem;
   margin: 0 0.1rem;
   cursor: pointer;
 }
 
 .one .sort .day.active,
-.one .sort .day:active{
+.one .sort .day:active {
   background: rgba(210, 255, 213, 0.3);
   border-radius: 25px;
 }
 
-::selection{
+::selection {
   background: rgba(210, 255, 213, 0.3);
 }
 
-.photo{
+.photo {
   width: 120px;
   background: black;
   border-radius: 50%;
@@ -129,18 +154,18 @@ export default {
   margin: 1rem 0;
 }
 
-.main{
+.main {
   width: 150px;
 }
 
-.profile{
+.profile {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
 }
 
-.profile .person{
+.profile .person {
   display: flex;
   margin: 1rem 0;
   justify-content: center;
@@ -148,26 +173,26 @@ export default {
   flex-direction: column;
 }
 
-.profile .person.first{
+.profile .person.first {
   z-index: 10;
   transform: translateY(-10%);
 }
 
-.first .fa-crown{
+.first .fa-crown {
   color: gold;
   filter: drop-shadow(0px 0px 5px gold);
 }
 
-.num{
+.num {
   color: royalblue;
 }
 
-.fa-caret-up{
+.fa-caret-up {
   color: royalblue;
   font-size: 21px;
 }
 
-.link{
+.link {
   margin: 0.2rem 0;
   color: black;
   margin-top: -0.3rem;
@@ -179,36 +204,36 @@ export default {
   color: rgb(11, 138, 85);
 }
 
-.points{
+.points {
   color: royalblue;
   font-size: 17px;
 }
 
-.points-winner{
+.points-winner {
   color: royalblue;
   font-size: 23px;
 }
 
-.second{
+.second {
   margin-right: -0.7rem !important;
 }
 
-.third{
+.third {
   margin-left: -0.7rem !important;
 }
 
-.p_img{
+.p_img {
   width: 70px;
   background: #fff;
   border-radius: 50%;
 }
 
-.flex{
+.flex {
   display: flex;
   align-items: center;
 }
 
-.others{
+.others {
   display: flex;
   width: 100%;
   margin-top: 1rem;
@@ -216,7 +241,7 @@ export default {
   justify-content: center;
 }
 
-.info{
+.info {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -224,27 +249,27 @@ export default {
   background: rgba(210, 255, 213, 0.3);
 }
 
-.info .points{
+.info .points {
   margin-left: 0.2rem;
   margin-right: 1.2rem;
 }
 
-.info .link{
+.info .link {
   margin: 0 1rem;
 }
 
-.rank{
+.rank {
   display: flex;
   align-items: center;
   margin: 0 1rem;
   flex-direction: column-reverse;
 }
 
-.rank i{
+.rank i {
   margin-top: -5px !important;
 }
 
-.rank .num{
+.rank .num {
   margin: 0 !important;
 }
 </style>

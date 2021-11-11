@@ -1,6 +1,7 @@
 <template>
   <div class="mt-3">
-    <leaderboard :details="user" />
+    <c-spinner h="100vh" v-if="pageLoading" />
+    <leaderboard v-else :details="user" />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ export default {
       refreshToken: '',
       username: '',
       details: '',
+      pageLoading: true,
     };
   },
   methods: {
@@ -49,6 +51,9 @@ export default {
       }
       return null;
     },
+    sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    },
   },
   async fetch() {
     this.username = await this.$auth.$storage.getUniversal('username');
@@ -60,7 +65,10 @@ export default {
         headers: { Authorisation: token },
       },
     );
-    this.user = this.topFour(data);
+    if (data) {
+      this.user = this.topFour(data);
+      this.pageLoading = false;
+    }
   },
 };
 </script>

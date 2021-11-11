@@ -7,6 +7,7 @@
         to="/"
         class="fw-bold text-warning text-decoration-none"
         color="gray.400"
+        :_focus="{ outline: 'none' }"
       >
         <img
           src="./img/DabaoHero Logo.png"
@@ -21,25 +22,19 @@
         type="button"
         class="navbar-toggler"
         data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
+        data-bs-target="#navbarSupportedContent"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <c-box
-            as="ul"
-            color="gray.500"
-            d="flex"
-            align-items="center"
-            list-style-type="none"
-          >
-            <c-box as="li" mr="8" color="gray.400">
-              <nuxt-link to="#about">About</nuxt-link>
-            </c-box>
-            <c-box as="li" mr="8">
-              <c-button @click="login">Login</c-button>
-            </c-box>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link px-3" href="/#about">About</a>
+          </li>
+          <c-box as="li" mr="5" px="3">
+            <c-button :_hover="{ color: 'yellow.400' }" @click="login"
+              >Login</c-button
+            >
           </c-box>
         </ul>
       </div>
