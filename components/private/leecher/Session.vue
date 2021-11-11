@@ -1,17 +1,27 @@
 <template>
   <c-box maxW="sm" border-width="1px" rounded="lg" margin="3">
-    <c-image :src="require(`../../../assets/Image${randomImage}.jpg`)"/>
+    <c-image :src="require(`../../../assets/Image${randomImage}.jpg`)" />
     <c-text fontWeight="bold" m="4">{{ session.food }}</c-text>
 
-    <c-button m="4" class="btn btn-dabao"
-        fontWeight="bold" size="lg"
-        :_hover="{
+    <c-button
+      m="4"
+      class="btn btn-dabao"
+      fontWeight="bold"
+      size="lg"
+      bg="white"
+      :_hover="{
         color: '#fff',
         fontSize: '20px',
         size: 'xxl',
-        border: '10px', paddingBottom:'2',
-        borderColor:'#ffc107', height:'65px'}"
-        v-show="!apiCalled" @click="joinSession">Join Session</c-button>
+        border: '10px',
+        paddingBottom: '2',
+        borderColor: '#ffc107',
+        height: '65px',
+      }"
+      v-show="!apiCalled"
+      @click="joinSession"
+      >Join Session</c-button
+    >
     <c-spinner
       m="4"
       v-show="apiCalled && !apiSuccess"
@@ -23,15 +33,24 @@
 
     <c-popover>
       <c-popover-trigger>
-        <c-button m="4" class="btn btn-dabao"
-        fontWeight="bold" size="lg"
-        :_hover="{
-        color: '#fff',
-        fontSize: '20px',
-        size: 'xxl',
-        border: '10px', paddingBottom:'2',
-        borderColor:'#ffc107', height:'65px'}"
-        v-show="apiCalled && apiSuccess">Chat</c-button>
+        <c-button
+          m="4"
+          class="btn btn-dabao"
+          fontWeight="bold"
+          size="lg"
+          bg="white"
+          :_hover="{
+            color: '#fff',
+            fontSize: '20px',
+            size: 'xxl',
+            border: '10px',
+            paddingBottom: '2',
+            borderColor: '#ffc107',
+            height: '65px',
+          }"
+          v-show="apiCalled && apiSuccess"
+          >Chat</c-button
+        >
       </c-popover-trigger>
       <c-popover-content z-index="4">
         <c-popover-arrow />
@@ -46,7 +65,7 @@
             <c-link
               as="nuxt-link"
               to="sessions"
-              :_hover="{textDecoration:'none', color:'white'}"
+              :_hover="{ textDecoration: 'none', color: 'white' }"
             >
               Confirm?
             </c-link>
@@ -74,11 +93,10 @@ export default {
       this.apiCalled = true;
       const username = await this.$auth.$storage.getUniversal('username');
       const url = `${process.env.BACKEND_URL}/session/join`;
-      const data = await this.$axios.$post(url,
-        {
-          session_code: this.session.key,
-          username,
-        });
+      const data = await this.$axios.$post(url, {
+        session_code: this.session.key,
+        username,
+      });
       if (data) {
         this.apiSuccess = true;
       }

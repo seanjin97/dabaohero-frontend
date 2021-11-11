@@ -2,21 +2,33 @@
   <div>
     <div class="container-fluid bg-grad">
       <div class="px-5 pt-5 my-1 text-center min-vh-75">
-
-        <div class="d-inline" style="max-height: 30vh;">
-            <img src="./img/DabaoHero.png" class="img-fluid mx-auto mb-2 animate__animated animate__fadeInDown" width="500" height="300">
+        <div class="d-inline" style="max-height: 30vh">
+          <img
+            src="./img/DabaoHero.png"
+            class="img-fluid mx-auto mb-2 animate__animated animate__fadeInDown"
+            width="500"
+            height="300"
+          />
         </div>
 
         <br />
         <div class="mx-auto">
-          <div class="lead fw-normal mx-auto mb-6" style="max-width:600px">
+          <div class="lead fw-normal mx-auto mb-6" style="max-width: 600px">
             DabaoHero aims to promote hawker businesses in Singapore through
             <strong>community-driven</strong> food deliveries, encouraging more
             takeaways from our hawkers without involving them in the process.
           </div>
           <br />
-          <h1 class="fs-4 fw-light text-muted text-$yellow-300 mb-4 animate__animated animate__fadeInLeft">
-          Welcome back, {{username}}.
+          <h1
+            class="
+              fs-4
+              fw-light
+              text-muted text-$yellow-300
+              mb-4
+              animate__animated animate__fadeInLeft
+            "
+          >
+            Welcome back, {{ username }}.
           </h1>
           <div
             v-if="!isOptionSelected"
@@ -65,12 +77,13 @@
 
           <c-flex justify="center" mb="50px">
             <center>
-              <c-box pos="relative" right="150px" top="41px">
+              <c-box pos="relative" right="150px" top="41px" w="4" mr="8">
                 <c-button
                   @click="
                     () => {
                       isOptionSelected = false;
                       searchedSessions = [];
+                      searchInProgress = false;
                     }
                   "
                   mr="1"
@@ -89,6 +102,7 @@
                 @getPostal="getField"
                 v-on:click="getKey"
                 @joinSession="getKey"
+                :searchInProgress="searchInProgress"
               />
             </center>
           </c-flex>
@@ -140,6 +154,7 @@ export default {
       key: '',
       showDabaoerFlow: false,
       isOptionSelected: false,
+      searchInProgress: false,
     };
   },
 
@@ -159,11 +174,15 @@ export default {
       }
     },
     async fetching() {
+      this.searchInProgress = true;
       const url = `${process.env.BACKEND_URL}/session/search?username=${this.username}&postal_code=${this.field}`;
       const token = await this.$auth.strategy.token.get();
       const data = await this.$axios.$get(url, {
         headers: { Authorisation: token },
       });
+      if (data) {
+        this.searchInProgress = false;
+      }
       this.searchedSessions = data;
     },
 

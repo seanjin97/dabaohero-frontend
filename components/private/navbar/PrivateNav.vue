@@ -8,6 +8,7 @@
         to="/home"
         class="fw-bold fs-5 text-warning text-decoration-none"
         color="gray.400"
+        :_focus="{ outline: 'none' }"
         @click="
           () => {
             isOptionSelected = false;

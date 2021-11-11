@@ -26,7 +26,8 @@
     "firebase": "^8.10.0",
     "lodash": "^4.17.21",
     "nuxt": "^2.15.7",
-    "roboto-fontface": "^0.10.0"
+    "roboto-fontface": "^0.10.0",
+    "vue2-datepicker": "^3.10.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",

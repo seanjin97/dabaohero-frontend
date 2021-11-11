@@ -1,76 +1,78 @@
 <template>
   <section class="section about-section gray-bg" id="about">
     <div class="container">
-        <div class="row align-items-center flex-row-reverse">
-            <div class="col-lg-6">
-                <div class="about-text go-to">
-                    <h3 class="dark-color">About Me</h3>
-                    <h6 class="theme-color lead"></h6>
-                    <p></p>
-                    <div class="row about-list">
-                        <div class="col-md-6">
-                            <div class="media">
-                                <label>Name</label>
-                                <p>{{userData.name}}</p>
-                            </div>
-                            <div class="media">
-                                <label>Nickname</label>
-                                <p>{{userData.nickname}}</p>
-                            </div>
-                            <div class="media">
-                                <label>Username</label>
-                                <p>{{userData.username}}</p>
-                            </div>
-                            <div class="media">
-                                <label>Last Login</label>
-                                <p>{{loginDate}}</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                        </div>
-                    </div>
+      <div class="row align-items-center flex-row-reverse">
+        <div class="col-lg-6">
+          <div class="about-text go-to">
+            <h3 class="dark-color">About Me</h3>
+            <h6 class="theme-color lead"></h6>
+            <p></p>
+            <div class="row about-list">
+              <div class="col-md-6">
+                <div class="media">
+                  <label>Name</label>
+                  <p>{{ userData.name }}</p>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="about-avatar">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+                <div class="media">
+                  <label>Nickname</label>
+                  <p>{{ userData.nickname }}</p>
                 </div>
+                <div class="media">
+                  <label>Username</label>
+                  <p>{{ userData.username }}</p>
+                </div>
+                <div class="media">
+                  <label>Last Login</label>
+                  <p>{{ loginDate }}</p>
+                </div>
+              </div>
+              <div class="col-md-6"></div>
             </div>
+          </div>
         </div>
-        <div class="counter">
-            <div class="row">
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2">{{userData.completed_orders}}</h6>
-                        <p class="m-0px font-w-600">Happy Clients</p>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2">{{userData.orders_requested}}</h6>
-                        <p class="m-0px font-w-600">Orders requested</p>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2">{{userData.rating}}</h6>
-                        <p class="m-0px font-w-600">Current Rating</p>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2">{{active_sessions}}</h6>
-                        <p class="m-0px font-w-600">Number of active sessions</p>
-                    </div>
-                </div>
-            </div>
+        <div class="col-lg-6">
+          <div class="about-avatar">
+            <img
+              src="https://bootdey.com/img/Content/avatar/avatar7.png"
+              title=""
+              alt=""
+            />
+          </div>
         </div>
+      </div>
+      <div class="counter">
+        <div class="row">
+          <div class="col-6 col-lg-3">
+            <div class="count-data text-center">
+              <h6 class="count h2">{{ userData.completed_orders }}</h6>
+              <p class="m-0px font-w-600">Happy Clients</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="count-data text-center">
+              <h6 class="count h2">{{ userData.orders_requested }}</h6>
+              <p class="m-0px font-w-600">Orders requested</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="count-data text-center">
+              <h6 class="count h2">{{ userData.rating }}</h6>
+              <p class="m-0px font-w-600">Current Rating</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="count-data text-center">
+              <h6 class="count h2">{{ active_sessions }}</h6>
+              <p class="m-0px font-w-600">Number of active sessions</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-
 export default {
   name: 'Profile',
   props: {
@@ -82,23 +84,23 @@ export default {
 </script>
 
 <style>
-body{
-    color: #6F8BA4;
-    margin-top:20px;
+body {
+  color: #6f8ba4;
+  margin-top: 20px;
 }
 .section {
-    padding: 100px 0;
-    position: relative;
+  padding: 100px 0;
+  position: relative;
 }
 .gray-bg {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 img {
-    vertical-align: middle;
-    border-style: none;
+  vertical-align: middle;
+  border-style: none;
 }
 .about-text h3 {
   font-size: 45px;
@@ -142,7 +144,7 @@ img {
   position: relative;
 }
 .about-list label:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
@@ -189,18 +191,21 @@ img {
   margin: 0;
 }
 mark {
-    background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
-    background-size: 100% 3px;
-    background-repeat: no-repeat;
-    background-position: 0 bottom;
-    background-color: transparent;
-    padding: 0;
-    color: currentColor;
+  background-image: linear-gradient(
+    rgba(252, 83, 86, 0.6),
+    rgba(252, 83, 86, 0.6)
+  );
+  background-size: 100% 3px;
+  background-repeat: no-repeat;
+  background-position: 0 bottom;
+  background-color: transparent;
+  padding: 0;
+  color: currentColor;
 }
 .theme-color {
-    color: #fc5356;
+  color: #fc5356;
 }
 .dark-color {
-    color: #20247b;
+  color: #20247b;
 }
 </style>

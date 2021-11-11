@@ -64,12 +64,15 @@
                   </c-box>
                 </c-box>
                 <c-box class="col-lg-6 hidden-sm text-right">
-                  <a class="btn btn-warning" v-if="dabaoerCheck">
+                  <a class="btn btn-warning float-right" v-if="dabaoerCheck">
                     <button @click="$emit('endSession')">
                       <i class="fas fa-hourglass-end" style="color: white"></i>
                     </button>
                   </a>
-                  <a class="btn btn-warning" v-else-if="leecherCheck">
+                  <a
+                    class="btn btn-warning float-right"
+                    v-else-if="leecherCheck"
+                  >
                     <button
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
@@ -206,6 +209,7 @@
                     :message="message"
                     :username="username"
                   />
+                  <div ref="scrollToMe"></div>
                 </li>
               </ul>
             </div>
@@ -276,6 +280,7 @@ export default {
           sessionId: this.sessionId,
         });
         this.newMessage = '';
+        this.scrollToElement();
       }
     },
     async submitRating() {
@@ -302,6 +307,17 @@ export default {
     getDabaoer(x) {
       this.dabaoer = x;
     },
+    scrollToElement() {
+      const el = this.$refs.scrollToMe;
+
+      if (el) {
+        // Use el.scrollIntoView() to instantly scroll to the element
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+  },
+  updated() {
+    this.scrollToElement();
   },
   computed: {
     trimmedId() {
