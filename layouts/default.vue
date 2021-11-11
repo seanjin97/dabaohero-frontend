@@ -3,8 +3,8 @@
     <c-color-mode-provider #default="{ colorMode }">
       <c-box v-bind="mainStyles[colorMode]">
         <c-reset />
-        <private-nav />
-        <nuxt />
+          <private-nav />
+          <nuxt />
       </c-box>
     </c-color-mode-provider>
   </c-theme-provider>
