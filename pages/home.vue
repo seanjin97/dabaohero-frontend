@@ -1,19 +1,20 @@
 <template>
   <div>
+    <div id="intro" class="bg-image">
     <div class="container-fluid bg-grad">
-      <div class="px-5 pt-5 my-1 text-center min-vh-75">
+      <div class="px-5 pt-5 text-center min-vh-75">
         <div class="d-inline" style="max-height: 30vh">
           <img
             src="./img/DabaoHero.png"
-            class="img-fluid mx-auto mb-2 animate__animated animate__fadeInDown"
+            class="img-fluid mx-auto mt-3 mb-2 animate__animated animate__fadeInDown"
             width="500"
             height="300"
           />
         </div>
 
         <br />
-        <div class="mx-auto">
-          <div class="lead fw-normal mx-auto mb-6" style="max-width: 600px">
+        <div class="mx-auto pb-1">
+          <div class="lead fs-5 fw-normal mx-auto mb-6" style="max-width: 600px">
             DabaoHero aims to promote hawker businesses in Singapore through
             <strong>community-driven</strong> food deliveries, encouraging more
             takeaways from our hawkers without involving them in the process.
@@ -21,9 +22,8 @@
           <br />
           <h1
             class="
-              fs-4
-              fw-light
-              text-muted text-$yellow-300
+              fs-5
+              fw-lighter
               mb-4
               animate__animated animate__fadeInLeft
             "
@@ -106,7 +106,10 @@
               />
             </center>
           </c-flex>
+          </div>
+          <div class="d-none d-sm-block">
           <HeroImg />
+          </div>
         </div>
       </div>
     </div>
