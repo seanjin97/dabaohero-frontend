@@ -1,5 +1,6 @@
-export default async ({ app: { $auth, $axios } }) => {
+export default async ({ app: { $auth, $axios }, redirect }) => {
   if (!$auth.loggedIn) {
+    redirect('/');
     return;
   }
   const { email } = $auth.user;
