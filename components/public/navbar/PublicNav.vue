@@ -1,7 +1,10 @@
 <template>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light shadow-sm" width="100%"
-  style="background-color: #fffefbf3">
-    <div class="container-fluid ">
+  <nav
+    class="navbar sticky-top navbar-expand-lg navbar-light shadow-sm"
+    width="100%"
+    style="background-color: #fffefbf3"
+  >
+    <div class="container-fluid">
       <c-link
         as="nuxt-link"
         to="/"
@@ -26,7 +29,10 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <c-box class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <c-box
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarSupportedContent"
+      >
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link px-3" href="/#features">Features</a>
