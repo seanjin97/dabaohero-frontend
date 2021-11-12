@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light shadow-sm" width="100%"
-  style="background-color: #fffef2ee">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light shadow-sm" width="100%"
+  style="background-color: #fffefbf3">
     <div class="container-fluid">
       <c-link
         as="nuxt-link"
@@ -37,13 +37,13 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <c-box class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
+      <c-box class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link px-3 " href="/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link px-3" href="/home#about">About</a>
+            <a class="nav-link px-3" href="/home#features">Features</a>
           </li>
           <li class="nav-item">
             <a class="nav-link px-3" href="/sessions">Sessions</a>

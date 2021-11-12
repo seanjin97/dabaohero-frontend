@@ -1,75 +1,98 @@
-<!-- eslint-disable max-len -->
 <template>
   <div>
-    <div class="container-fluid ">
-      <div class="px-5 pt-5 my-1 text-center min-vh-75 bg-gradient">
-        <h1 class="display-4 fw-bold animate__animated animate__fadeInLeft">Welcome to DabaoHero.</h1> <br>
-        <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">DabaoHero aims to promote hawker businesses in Singapore by encouraging more takeaways, without involving the hawkers themselves.</p>
-          <div v-if="!isOptionSelected" class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <button type="button" class="btn btn-warning fw-bold btn-lg px-4 me-sm-3 shadow-sm animate__animated animate__fadeIn"
-            @click="login"
-            >Dabao</button>
-            <button class="btn btn-outline-warning fw-bold btn-lg px-4 shadow-sm animate__animated animate__fadeIn"
-            @click="login"
-            >Order</button>
+    <div id="intro" class="bg-image shadow">
+    <div class="container-fluid bg-grad">
+      <div class="px-5 pt-5 text-center min-vh-75">
+        <div class="d-inline" style="max-height: 30vh">
+          <img
+            src="./img/DabaoHero.png"
+            class="img-fluid mx-auto mt-3 mb-2 animate__animated animate__fadeInDown"
+            width="500"
+            height="300"
+          />
+        </div>
+
+        <br />
+        <div class="mx-auto pb-1">
+          <div class="lead fs-5 fw-normal mx-auto mb-6" style="max-width: 600px">
+            DabaoHero aims to promote hawker businesses in Singapore through
+            <strong>community-driven</strong> food deliveries, encouraging more
+            takeaways from our hawkers without involving them in the process.
+          </div>
+          <br />
+          <div
+            v-if="!isOptionSelected"
+            class="d-grid gap-2 d-sm-flex justify-content-sm-center"
+          >
+            <button
+              type="button"
+              class="
+                btn-dabao
+                fw-bold
+                btn-lg
+                px-4
+                me-sm-3
+                shadow
+                animate__animated animate__zoomIn
+              "
+              @click="login"
+            >
+              Dabao
+            </button>
+            <button
+              type="button"
+              class="
+                btn-dabao
+                fw-bold
+                btn-lg
+                px-4
+                shadow
+                animate__animated animate__zoomIn
+              "
+              @click="login"
+            >
+              Order
+            </button>
+          </div>
+          </div>
+          <div class="d-none d-sm-block mt-5">
+          <HeroImg />
           </div>
         </div>
       </div>
     </div>
-        <c-flex justify="center">
-          <center>
-          <c-box pos="absolute" left="500px">
-            <c-button
-              @click="login"
-              mr="16"
-              v-show="isOptionSelected"
-            >
-              <i class="fas fa-angle-left"></i>
-            </c-button>
-          </c-box>
-          <dabaoer
-            v-if="isOptionSelected && showDabaoerFlow"
-            @createSession="getField"
-          />
-          <leecher
-            v-else-if="isOptionSelected && !showDabaoerFlow"
-            :searchedSessions="searchedSessions"
-            @getPostal="getField"
-            v-on:click="getKey"
-            @joinSession="getKey"
-          />
-          </center>
-        </c-flex>
-    <HeroImg />
-    <br>
-    <Feature />
+    <Features />
+
+    <Partners />
+
+    <a href="#" class="scroll-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
     <c-button v-show="this.$auth.loggedIn" @click="getToken">
       Get Token
     </c-button>
 
-      <c-box v-show="this.$auth.loggedIn">{{ 'Access token: ' + token }}</c-box>
-      <c-box v-show="this.$auth.loggedIn">{{
-        'Refresh token: ' + refreshToken
-      }}</c-box>
+    <c-box v-show="this.$auth.loggedIn">{{ 'Access token: ' + token }}</c-box>
+    <c-box v-show="this.$auth.loggedIn">{{
+      'Refresh token: ' + refreshToken
+    }}</c-box>
   </div>
 </template>
 
 <script>
-import Leecher from '@/components/private/leecher/Leecher.vue';
-import Dabaoer from '@/components/private/dabaoer/Dabaoer.vue';
+
 import HeroImg from '@/components/common/hero-image.vue';
-import Feature from '@/components/common/feature.vue';
+import Features from '@/components/common/features.vue';
+import Partners from '@/components/common/partners.vue';
 
 export default {
   layout: 'public',
   auth: 'guest',
   components: {
-    Leecher,
-    Dabaoer,
     HeroImg,
-    Feature,
+    Features,
+    Partners,
   },
   data() {
     return {
