@@ -25,12 +25,13 @@
     <div class="md-form">
       <date-picker
         style="width: 230px"
+        class="animate__animated animate__fadeInLeft"
         v-model="field[2]"
         type="time"
         placeholder="Enter departure time"
         :use12h="true"
         :show-second="false"
-        input-class="form-control form-control-lg mb-3 animate__animated animate__fadeInLeft"
+        input-class="form-control form-control-lg mb-3"
       />
     </div>
     <session :field="field" />
