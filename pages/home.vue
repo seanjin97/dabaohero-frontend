@@ -120,7 +120,7 @@
     <a href="#" class="scroll-top">
         <i class="fas fa-angle-up"></i>
     </a>
-<!-- 
+<!--
     <c-button v-show="this.$auth.loggedIn" @click="getToken">
       Get Token
     </c-button>

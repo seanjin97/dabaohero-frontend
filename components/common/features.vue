@@ -18,7 +18,7 @@
                     <div class="col-lg-4 col-12">
                         <a href="#">
                         <div
-                            class="single-feature animate__animated animate__fadeInUp shadow-sm mx-4 mx-sm-auto"
+                            class="single-feature animate__animated animate__fadeInUp shadow-sm mx-4 mx-lg-auto"
                             style="animation-delay: .4s">
                                 <div class="feature-icon mx-auto">
                                     <i class="fas fa-concierge-bell"></i>
@@ -31,7 +31,7 @@
 
                     <div class="col-lg-4 col-12">
                         <a href="#">
-                        <div class="single-feature animate__animated animate__fadeInUp shadow-sm mx-4 mx-sm-auto"
+                        <div class="single-feature animate__animated animate__fadeInUp shadow-sm mx-4 mx-lg-auto"
                             style="animation-delay: .6s">
                                 <div class="feature-icon mx-auto">
                                     <i class="fas fa-search"></i>
@@ -44,7 +44,7 @@
 
                     <div class="col-lg-4 col-12">
                         <a href="/sessions">
-                        <div class="single-feature animate__animated animate__fadeInUp shadow-sm mx-4 mx-sm-auto"
+                        <div class="single-feature animate__animated animate__fadeInUp shadow-sm mx-4 mx-lg-auto"
                             style="animation-delay: .8s">
                                 <div class="feature-icon mx-auto">
                                     <i class="fas fa-comments"></i>

@@ -98,11 +98,11 @@ a.nav-link:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 14px;
   color: #fff !important;
   border-radius: 0;
@@ -222,12 +222,10 @@ a.nav-link:hover {
   border-radius: 4px;
 }
 
-
 .section-title h2 {
   font-size: 30px;
   margin-bottom: 18px;
   line-height: 40px;
-  /* text-transform: capitalize; */
   position: relative;
   font-weight: 700;
 }

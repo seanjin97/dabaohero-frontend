@@ -29,7 +29,7 @@
       <c-box class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link px-3" href="home/#features">Features</a>
+            <a class="nav-link px-3" href="/#features">Features</a>
           </li>
           <c-box as="li" mr="5" px="3">
             <c-button :_hover="{ color: 'yellow.400' }" @click="login"
