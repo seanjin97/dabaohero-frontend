@@ -62,7 +62,7 @@ export default {
       // url,
       `${process.env.BACKEND_URL}/leaderboard`,
       {
-        headers: { Authorisation: token },
+        headers: { Authorization: `Bearer ${token}` },
       },
     );
     if (data) {

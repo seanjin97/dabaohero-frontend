@@ -184,7 +184,7 @@
                         <button
                           type="button"
                           class="btn btn-primary"
-                          @click="submitRating(), $emit('endSession')"
+                          @click="submitRating()"
                           data-bs-dismiss="modal"
                         >
                           Submit
@@ -286,23 +286,21 @@ export default {
     async submitRating() {
       const url = `${process.env.BACKEND_URL}/user/rate`;
       const token = await this.$auth.strategy.token.get();
-      console.log(this.username);
-      console.log(this.rating);
-      console.log(this.dabaoer);
-      console.log(this.sessionId);
       const data = await this.$axios.$post(
         url,
         {
-          headers: { Authorisation: token },
-        },
-        {
           username: this.username,
-          rating: this.rating,
+          rating: Number(this.rating),
           dabaoer: this.dabaoer,
           session_code: this.sessionId,
         },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
       );
-      console.log(data);
+      if (data) {
+        this.$emit('clearSession');
+      }
     },
     getDabaoer(x) {
       this.dabaoer = x;

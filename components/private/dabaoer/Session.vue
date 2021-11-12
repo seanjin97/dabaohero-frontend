@@ -78,20 +78,19 @@ export default {
     async createSession() {
       this.apiCalled = true;
       const username = await this.$auth.$storage.getUniversal('username');
+      const token = await this.$auth.strategy.token.get();
       const date = this.field[2].toISOString();
-      console.log({
-        postal_code: this.field[0],
-        food: this.field[1],
-        departure_time: date,
-        username,
-      });
       const url = `${process.env.BACKEND_URL}/session/create`;
-      const data = await this.$axios.$post(url, {
-        postal_code: this.field[0],
-        food: this.field[1],
-        departure_time: date,
-        username,
-      });
+      const data = await this.$axios.$post(
+        url,
+        {
+          postal_code: this.field[0],
+          food: this.field[1],
+          departure_time: date,
+          username,
+        },
+        { headers: { Authorization: `Bearer ${token}` } },
+      );
       if (data) {
         this.apiSuccess = true;
       }

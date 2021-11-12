@@ -55,7 +55,7 @@ export default {
     const token = await this.$auth.strategy.token.get();
     const url = `${process.env.BACKEND_URL}/user/account/${this.email}`;
     const data = await this.$axios.$get(url, {
-      headers: { Authorisation: token },
+      headers: { Authorization: `Bearer ${token}` },
     });
     if (data) {
       this.pageLoading = false;

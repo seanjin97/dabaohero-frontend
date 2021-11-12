@@ -1,62 +1,72 @@
 <template>
   <div>
     <div id="intro" class="bg-image shadow">
-    <div class="container-fluid bg-grad">
-      <div class="px-5 pt-5 text-center min-vh-75">
-        <div class="d-inline" style="max-height: 30vh">
-          <img
-            src="./img/DabaoHero.png"
-            class="img-fluid mx-auto mt-3 mb-2 animate__animated animate__fadeInDown"
-            width="500"
-            height="300"
-          />
-        </div>
+      <div class="container-fluid bg-grad">
+        <div class="px-5 pt-5 text-center min-vh-75">
+          <div class="d-inline" style="max-height: 30vh">
+            <img
+              src="./img/DabaoHero.png"
+              class="
+                img-fluid
+                mx-auto
+                mt-3
+                mb-2
+                animate__animated animate__fadeInDown
+              "
+              width="500"
+              height="300"
+            />
+          </div>
 
-        <br />
-        <div class="mx-auto pb-1">
-          <div class="lead fs-5 fw-normal mx-auto mb-6" style="max-width: 600px">
-            DabaoHero aims to promote hawker businesses in Singapore through
-            <strong>community-driven</strong> food deliveries, encouraging more
-            takeaways from our hawkers without involving them in the process.
-          </div>
           <br />
-          <div
-            v-if="!isOptionSelected"
-            class="d-grid gap-2 d-sm-flex justify-content-sm-center"
-          >
-            <button
-              type="button"
-              class="
-                btn-dabao
-                fw-bold
-                btn-lg
-                px-4
-                me-sm-3
-                shadow
-                animate__animated animate__zoomIn
-              "
-              @click="login"
+          <div class="mx-auto pb-1">
+            <div
+              class="lead fs-5 fw-normal mx-auto mb-6"
+              style="max-width: 600px"
             >
-              Dabao
-            </button>
-            <button
-              type="button"
-              class="
-                btn-dabao
-                fw-bold
-                btn-lg
-                px-4
-                shadow
-                animate__animated animate__zoomIn
-              "
-              @click="login"
+              DabaoHero aims to promote hawker businesses in Singapore through
+              <strong>community-driven</strong> food deliveries, encouraging
+              more takeaways from our hawkers without involving them in the
+              process.
+            </div>
+            <br />
+            <div
+              v-if="!isOptionSelected"
+              class="d-grid gap-2 d-sm-flex justify-content-sm-center"
             >
-              Order
-            </button>
-          </div>
+              <button
+                type="button"
+                class="
+                  btn-dabao
+                  fw-bold
+                  btn-lg
+                  px-4
+                  me-sm-3
+                  shadow
+                  animate__animated animate__zoomIn
+                "
+                @click="login"
+              >
+                Dabao
+              </button>
+              <button
+                type="button"
+                class="
+                  btn-dabao
+                  fw-bold
+                  btn-lg
+                  px-4
+                  shadow
+                  animate__animated animate__zoomIn
+                "
+                @click="login"
+              >
+                Order
+              </button>
+            </div>
           </div>
           <div class="d-none d-sm-block mt-5">
-          <HeroImg />
+            <HeroImg />
           </div>
         </div>
       </div>
@@ -66,7 +76,7 @@
     <Partners />
 
     <a href="#" class="scroll-top">
-        <i class="fas fa-angle-up"></i>
+      <i class="fas fa-angle-up"></i>
     </a>
 
     <!-- <c-button v-show="this.$auth.loggedIn" @click="getToken">
@@ -81,7 +91,6 @@
 </template>
 
 <script>
-
 import HeroImg from '@/components/common/hero-image.vue';
 import Features from '@/components/common/features.vue';
 import Partners from '@/components/common/partners.vue';
@@ -128,7 +137,7 @@ export default {
       const token = await this.$auth.strategy.token.get();
 
       const data = await this.$axios.$get(url, {
-        headers: { Authorisation: token },
+        headers: { Authorization: `Bearer ${token}` },
       });
       this.searchedSessions = data;
     },
@@ -147,12 +156,19 @@ export default {
     },
     async createSession() {
       const url = `${process.env.BACKEND_URL}/session/create`;
-      const data = await this.$axios.$post(url, {
-        postal_code: this.field[0],
-        food: this.field[1],
-        departure_time: this.field[2],
-        username: this.username,
-      });
+      const token = await this.$auth.strategy.token.get();
+      const data = await this.$axios.$post(
+        url,
+        {
+          postal_code: this.field[0],
+          food: this.field[1],
+          departure_time: this.field[2],
+          username: this.username,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
       console.log(data);
     },
     login() {

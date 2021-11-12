@@ -9,6 +9,7 @@
         :sessions="sessions"
         @selectSession="openChat($event)"
         @endSession="endSession()"
+        @clearSession="clearSessions()"
         :sessionsLoading="sessionsLoading"
       />
     </div>
@@ -57,18 +58,19 @@ export default {
           username: this.username,
         },
         {
-          headers: { Authorisation: token },
+          headers: { Authorization: `Bearer ${token}` },
         },
       );
       if (data) {
-        const updatedSession = this.sessions.filter(
-          (item) => item.key !== this.selectedChat,
-        );
-        this.sessions = updatedSession;
-        this.selectedChat = null;
-
-        console.log(this.sessions);
+        this.clearSessions();
       }
+    },
+    clearSessions() {
+      const updatedSessions = this.sessions.filter(
+        (item) => item.key !== this.selectedChat,
+      );
+      this.sessions = updatedSessions;
+      this.selectedChat = null;
     },
   },
   async fetch() {
@@ -78,7 +80,7 @@ export default {
     this.sessions = await this.$axios.$get(
       `${process.env.BACKEND_URL}/user/sessions/${this.username}`,
       {
-        headers: { Authorisation: token },
+        headers: { Authorization: `Bearer ${token}` },
       },
     );
     this.sessionsLoading = false;
