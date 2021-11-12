@@ -1,65 +1,48 @@
-<!--eslint-disable max-len-->
 <template>
 <div>
-    <section id="features" class="features section">
+    <section id="features" class="features bg-reversegrad">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <span class="wow fadeInDown" data-wow-delay=".2s">Features</span>
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Checkout Our Software<br>
-                            Features Below.</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
+                <div class="section-title">
+                    <span class="animate__animated animate__fadeInDown mb-4 fs-5" style="animation-delay: .2s">
+                        Steps
+                    </span>
+                    <h2>Begin Your Journery as a DabaoHero.</h2>
                 </div>
             </div>
             <div class="single-head">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Feature -->
-                        <div class="single-feature wow fadeInUp" data-wow-delay=".2s">
+
+                    <div class="col-lg-4 col-12">
+                        <a href="#"><div class="single-feature animate__animated animate__fadeInUp shadow-sm" style="animation-delay: .2s">
                             <div class="feature-icon">
-                                <i class="lni lni-rocket"></i>
+                                <i class="fas fa-concierge-bell"></i>
                             </div>
-                            <h3>Speed Optimization</h3>
-                            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor</p>
-                        </div>
-                        <!-- End Single Feature -->
+                            <h3 class="fs-5">Step 1</h3>
+                            <p class='fs-6'>Select either <strong>Dabao</strong> to help others deliver food <br>or <strong>Order</strong> to order your own.</p>
+                        </div></a>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Feature -->
-                        <div class="single-feature wow fadeInUp" data-wow-delay=".4s">
+
+                    <div class="col-lg-4 col-12">
+                        <a href="#"><div class="single-feature animate__animated animate__fadeInUp shadow-sm" style="animation-delay: .4s">
                             <div class="feature-icon">
-                                <i class="lni lni-wechat"></i>
+                                <i class="fas fa-search"></i>
                             </div>
-                            <h3>Live Chat</h3>
-                            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor</p>
-                        </div>
-                        <!-- End Single Feature -->
+                            <h3 class="fs-5">Step 2</h3>
+                            <p class='fs-6'>Search for a match by entering details such as postal code, food, as well as departure time.</p>
+                        </div></a>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Feature -->
-                        <div class="single-feature wow fadeInUp" data-wow-delay=".6s">
+
+                    <div class="col-lg-4 col-12">
+                        <a href="/sessions"><div class="single-feature animate__animated animate__fadeInUp shadow-sm" style="animation-delay: .6s">
                             <div class="feature-icon">
-                                <i class="lni lni-layers"></i>
+                                <i class="fas fa-comments"></i>
                             </div>
-                            <h3>Secure Data</h3>
-                            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor</p>
-                        </div>
-                        <!-- End Single Feature -->
+                            <h3 class="fs-5">Step 3</h3>
+                            <p class='fs-6'>Join a nearby session and look for available Dabaoers or view all order requests as a Dabaoer. </p>
+                        </div></a>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Feature -->
-                        <div class="single-feature wow fadeInUp" data-wow-delay=".8s">
-                            <div class="feature-icon">
-                                <i class="lni lni-timer"></i>
-                            </div>
-                            <h3>Optimize Time</h3>
-                            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor</p>
-                        </div>
-                        <!-- End Single Feature -->
-                    </div>
+
                 </div>
             </div>
         </div>

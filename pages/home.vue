@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="intro" class="bg-image">
+    <div id="intro" class="bg-image shadow">
     <div class="container-fluid bg-grad">
       <div class="px-5 pt-5 text-center min-vh-75">
         <div class="d-inline" style="max-height: 30vh">
@@ -113,10 +113,8 @@
         </div>
       </div>
     </div>
-    <br />
     <Features />
-    <br />
-    <Specials />
+
     <br />
     <Partners />
 
