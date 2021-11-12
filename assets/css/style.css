@@ -14,7 +14,7 @@
   transition: 0.3s;
   line-height: 1;
   color: #ffc107;
-  background-color: #fffbf0b7;
+  background-color: #fffbf0ce;
   border: 2.5px solid #ffc107;
 }
 .btn-dabao:hover {
@@ -130,7 +130,7 @@ a.nav-link:hover {
   border: 2px solid #eee;
   border-radius: 10px;
   background-color: #fff;
-  text-align: left;
+  text-align: center;
   margin-top: 30px;
   position: relative;
   z-index: 2;
@@ -200,6 +200,8 @@ a.nav-link:hover {
   font-size: 30px;
   border-radius: 25%;
 }
+
+/* section */
 
 .section-title {
   text-align: center;

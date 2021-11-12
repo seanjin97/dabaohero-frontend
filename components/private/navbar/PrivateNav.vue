@@ -43,7 +43,7 @@
             <a class="nav-link px-3 " href="/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link px-3" href="/home#about">About</a>
+            <a class="nav-link px-3" href="/home#features">Features</a>
           </li>
           <li class="nav-item">
             <a class="nav-link px-3" href="/sessions">Sessions</a>

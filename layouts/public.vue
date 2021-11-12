@@ -39,12 +39,16 @@ export default {
         },
         {
           rel: 'stylesheet',
-          href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css',
+          href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css',
         },
       ],
       script: [
         {
-          src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js',
+          src: 'https://code.jquery.com/jquery-3.2.1.slim.min.js',
+          type: 'text/javascript',
+        },
+        {
+          src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
           type: 'text/javascript',
         },
       ],
@@ -52,3 +56,7 @@ export default {
   },
 };
 </script>
+
+<style>
+@import '../assets/css/style.css';
+</style>

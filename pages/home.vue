@@ -115,7 +115,6 @@
     </div>
     <Features />
 
-    <br />
     <Partners />
 
     <a href="#" class="scroll-top">

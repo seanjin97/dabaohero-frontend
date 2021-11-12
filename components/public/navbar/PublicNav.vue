@@ -1,7 +1,7 @@
-<!--eslint-disable max-len-->
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" width="100%">
-    <div class="container-fluid">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light shadow-sm" width="100%"
+  style="background-color: #fffefbf3">
+    <div class="container-fluid ">
       <c-link
         as="nuxt-link"
         to="/"
@@ -13,7 +13,7 @@
           src="./img/DabaoHero Logo.png"
           width="30"
           height="20"
-          class="d-inline-block align-text-top"
+          class="d-inline-block align-text-center"
         />
         DabaoHero
       </c-link>
@@ -26,10 +26,10 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <c-box class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link px-3" href="/#about">About</a>
+            <a class="nav-link px-3" href="home/#features">Features</a>
           </li>
           <c-box as="li" mr="5" px="3">
             <c-button :_hover="{ color: 'yellow.400' }" @click="login"
@@ -37,7 +37,7 @@
             >
           </c-box>
         </ul>
-      </div>
+      </c-box>
     </div>
   </nav>
 </template>
