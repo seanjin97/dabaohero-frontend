@@ -43,7 +43,7 @@
         </c-flex>
     <HeroImg />
     <br>
-    <Feature />
+    <Features />
 
     <c-button v-show="this.$auth.loggedIn" @click="getToken">
       Get Token
@@ -60,7 +60,7 @@
 import Leecher from '@/components/private/leecher/Leecher.vue';
 import Dabaoer from '@/components/private/dabaoer/Dabaoer.vue';
 import HeroImg from '@/components/common/hero-image.vue';
-import Feature from '@/components/common/feature.vue';
+import Features from '@/components/common/features.vue';
 
 export default {
   layout: 'public',
@@ -69,7 +69,7 @@ export default {
     Leecher,
     Dabaoer,
     HeroImg,
-    Feature,
+    Features,
   },
   data() {
     return {

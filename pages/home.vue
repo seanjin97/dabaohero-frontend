@@ -111,7 +111,7 @@
       </div>
     </div>
     <br />
-    <Feature />
+    <Features />
     <br />
     <Specials />
     <br />
@@ -132,7 +132,7 @@
 import Leecher from '@/components/private/leecher/Leecher.vue';
 import Dabaoer from '@/components/private/dabaoer/Dabaoer.vue';
 import HeroImg from '@/components/common/hero-image.vue';
-import Feature from '@/components/common/feature.vue';
+import Features from '@/components/common/features.vue';
 import Partners from '@/components/common/partners.vue';
 
 export default {
@@ -140,7 +140,7 @@ export default {
     Leecher,
     Dabaoer,
     HeroImg,
-    Feature,
+    Features,
     Partners,
   },
   data() {

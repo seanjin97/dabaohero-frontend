@@ -45,6 +45,6 @@
 
 <script>
 export default {
-  name: 'Feature',
+  name: 'Features',
 };
 </script>
