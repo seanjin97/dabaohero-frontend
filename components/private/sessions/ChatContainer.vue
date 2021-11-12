@@ -64,15 +64,38 @@
                   </c-box>
                 </c-box>
                 <c-box class="col-lg-6 hidden-sm text-right">
-                  <a class="btn btn-warning float-right" v-if="dabaoerCheck">
+                  <!-- <a class="btn btn-warning float-right" v-if="dabaoerCheck">
                     <button @click="$emit('endSession')">
                       <i class="fas fa-hourglass-end" style="color: white"></i>
                     </button>
-                  </a>
-                  <a
-                    class="btn btn-warning float-right"
-                    v-else-if="leecherCheck"
-                  >
+                  </a> -->
+                  <c-popover>
+                    <c-popover-trigger>
+                      <c-button bg="red" class="float-end" v-show="dabaoerCheck"
+                        ><i
+                          class="fas fa-hourglass-end"
+                          style="color: white"
+                        ></i
+                      ></c-button>
+                    </c-popover-trigger>
+                    <c-popover-content z-index="4">
+                      <c-popover-arrow />
+                      <c-popover-close-button />
+                      <c-popover-header>Delete confirmation</c-popover-header>
+                      <c-popover-body>
+                        <c-text
+                          >Are you sure you want to end this session?</c-text
+                        >
+                        <button
+                          @click="$emit('endSession')"
+                          class="m-3 btn btn-dabao fw-bold btn-lg"
+                        >
+                          Yes
+                        </button>
+                      </c-popover-body>
+                    </c-popover-content>
+                  </c-popover>
+                  <a class="btn btn-warning float-right" v-show="leecherCheck">
                     <button
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
