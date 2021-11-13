@@ -24,7 +24,7 @@
                                     <i class="fas fa-concierge-bell"></i>
                                 </div>
                                 <h3 class="fs-5">Choose Your Role</h3>
-                                <p class='fs-6'>Select either <strong>Dabao</strong> to help others deliver food or <strong>Order</strong> to order your own.</p>
+                                <p class='fs-6'>Select either <strong>Dabao</strong> to help others deliver food or <strong>Order</strong> to place an order yourself.</p>
                         </div>
                         </a>
                     </div>

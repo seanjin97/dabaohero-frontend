@@ -120,10 +120,10 @@
       </div>
     </div>
     <Features />
-
+    <FAQ />
     <Partners />
 
-    <a href="#" class="scroll-top">
+    <a href="#" class="scroll-top d-none d-lg-flex">
       <i class="fas fa-angle-up"></i>
     </a>
   </div>
@@ -134,6 +134,7 @@ import Leecher from '@/components/private/leecher/Leecher.vue';
 import Dabaoer from '@/components/private/dabaoer/Dabaoer.vue';
 import HeroImg from '@/components/common/hero-image.vue';
 import Features from '@/components/common/features.vue';
+import FAQ from '@/components/common/faq.vue';
 import Partners from '@/components/common/partners.vue';
 
 export default {
@@ -142,6 +143,7 @@ export default {
     Dabaoer,
     HeroImg,
     Features,
+    FAQ,
     Partners,
   },
   data() {
