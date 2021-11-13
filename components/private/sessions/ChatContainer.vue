@@ -60,7 +60,13 @@
                     />
                   </a>
                   <c-box class="chat-about">
-                    <h6 class="m-b-0 mt-2">{{ dabaoer }}</h6>
+                    <h6 class="m-b-0 mt-2">{{ dabaoer.key }}</h6>
+                    <h6>
+                      <c-badge
+                        >{{ dabaoer.rating }}
+                        <i class="fas fa-star text-warning"></i
+                      ></c-badge>
+                    </h6>
                   </c-box>
                 </c-box>
                 <c-box class="col-lg-6 hidden-sm text-right">
@@ -314,7 +320,7 @@ export default {
         {
           username: this.username,
           rating: Number(this.rating),
-          dabaoer: this.dabaoer,
+          dabaoer: this.dabaoer.key,
           session_code: this.sessionId,
         },
         {
