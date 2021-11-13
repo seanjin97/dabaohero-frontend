@@ -367,7 +367,7 @@ export default {
           (session) => session.key === this.sessionId,
         );
         if (sessionFound !== undefined) {
-          return sessionFound.dabaoer === this.username;
+          return sessionFound.dabaoer.key === this.username;
         }
         return null;
       }
@@ -382,7 +382,7 @@ export default {
         );
         if (sessionFound !== undefined) {
           return (
-            sessionFound.dabaoer !== this.username &&
+            sessionFound.dabaoer.key !== this.username &&
             !this.sessions.find((session) => session.key === this.sessionId)
               .is_active
           );
