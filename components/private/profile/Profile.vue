@@ -105,7 +105,7 @@ img {
 .about-text h3 {
   font-size: 45px;
   font-weight: 700;
-  margin: 0 0 6px;
+  margin: 0 0 2px;
 }
 @media (max-width: 767px) {
   .about-text h3 {
@@ -209,6 +209,6 @@ mark {
   color: #b97c20;
 }
 label::after {
-   content: none !important;
+  content: none !important;
 }
 </style>
