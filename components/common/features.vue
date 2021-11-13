@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="section-title">
-                    <h2>Begin Your Journery as a DabaoHero.</h2>
+                    <h2>Begin Your Journey as a DabaoHero.</h2>
                     <span
                         class="animate__animated animate__fadeInDown mt-2 fs-6"
                         style="animation-delay: .2s">

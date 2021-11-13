@@ -5,8 +5,11 @@
       <div class="col-lg-12">
         <div class="card one">
           <div class="header text-center">
+            <h1 class="title text-center">
+              Leaderboard
+            </h1>
             <h2 class="title text-center">
-              Leaderboard with Highest Order Made
+              Highest Orders Made
             </h2>
             <div></div>
           </div>

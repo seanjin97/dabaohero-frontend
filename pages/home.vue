@@ -31,7 +31,7 @@
             </div>
             <br />
             <h1
-              class="fs-5 fw-lighter mb-4 animate__animated animate__fadeInLeft"
+              class="fs-5 fw-light mb-4 animate__animated animate__fadeInLeft"
             >
               Welcome back, {{ username }}.
             </h1>
@@ -210,6 +210,7 @@ export default {
           headers: { Authorization: `Bearer ${token}` },
         },
       );
+      console.log(data);
     },
     async createSession() {
       const url = `${process.env.BACKEND_URL}/session/create`;
@@ -226,6 +227,7 @@ export default {
           headers: { Authorization: `Bearer ${token}` },
         },
       );
+      console.log(data);
     },
   },
   async fetch() {

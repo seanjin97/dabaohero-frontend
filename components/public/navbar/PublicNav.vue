@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <c-link
         as="nuxt-link"
-        to="/"
+        to="/#"
         class="fw-bold text-warning text-decoration-none"
         color="gray.400"
         :_focus="{ outline: 'none' }"

@@ -2,7 +2,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'dabaohero-frontend',
+    title: 'DabaoHero',
     htmlAttrs: {
       lang: 'en',
     },
@@ -13,7 +13,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
     ],
     script: [
       { src: 'https://kit.fontawesome.com/1d06bc2a38.js', crossorigin: 'anonymous' },

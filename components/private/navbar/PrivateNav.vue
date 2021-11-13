@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <c-link
         as="nuxt-link"
-        to="/home"
+        to="/home#"
         class="fw-bold fs-5 text-warning text-decoration-none"
         color="gray.400"
         :_focus="{ outline: 'none' }"
@@ -40,7 +40,7 @@
       <c-box class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link px-3 " href="/home">Home</a>
+            <a class="nav-link px-3" href="/home#">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link px-3" href="/home#features">Features</a>
