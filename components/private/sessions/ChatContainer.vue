@@ -60,7 +60,18 @@
                     />
                   </a>
                   <c-box class="chat-about">
-                    <h6 class="m-b-0 mt-2">{{ dabaoer.key }}</h6>
+                    <h6 class="m-b-0 mt-2">
+                      {{ dabaoer.key === username ? 'You' : dabaoer.key }}
+                      <span class="text-secondary">(Host) </span>
+                      <span>
+                        and
+                        {{
+                          currentVisibleSession &&
+                          currentVisibleSession.leechers.length
+                        }}
+                        Leecher(s)</span
+                      >
+                    </h6>
                     <h6>
                       <c-badge
                         >{{ dabaoer.rating }}
@@ -397,6 +408,16 @@ export default {
           (session) => session.key === this.sessionId,
         );
         return selectedSession.is_active;
+      }
+      return null;
+    },
+    currentVisibleSession() {
+      if (this.sessions.length > 0 && this.sessionId) {
+        const selectedSession = this.sessions.find(
+          (session) => session.key === this.sessionId,
+        );
+        console.log(selectedSession);
+        return selectedSession;
       }
       return null;
     },
