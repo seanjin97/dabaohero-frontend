@@ -27,7 +27,7 @@
                 >{{ item.rating }} <i class="fas fa-star text-warning"></i
               ></c-badge>
               <p class="points" v-if="idx == 1">
-                {{ item.completed_orders }} order(s)
+                {{ item.completed_orders }} orders
               </p>
             </div>
             <div
@@ -48,7 +48,7 @@
                 >{{ item.rating }} <i class="fas fa-star text-warning"></i
               ></c-badge>
               <p class="points-winner" v-if="idx == 0">
-                {{ item.completed_orders }} order(s)
+                {{ item.completed_orders }} orders
               </p>
             </div>
             <div
@@ -64,7 +64,7 @@
                 >{{ item.rating }} <i class="fas fa-star text-warning"></i
               ></c-badge>
               <p class="points" v-if="idx == 2">
-                {{ item.completed_orders }} order(s)
+                {{ item.completed_orders }} orders
               </p>
             </div>
           </div>
@@ -90,7 +90,7 @@
                   >{{ item.rating }} <i class="fas fa-star text-warning"></i
                 ></c-badge>
                 <p class="points" v-if="idx === getCurrPos">
-                  {{ item.completed_orders }} order(s)
+                  {{ item.completed_orders }} orders
                 </p>
               </div>
             </div>
@@ -181,8 +181,8 @@ export default {
   width: 120px;
   background: black;
   border-radius: 50%;
-  border: 5px solid royalblue;
-  box-shadow: 0 0 20px royalblue;
+  border: 5px solid #ffc107;
+  box-shadow: 0 0 20px #e79450;
   margin: 1rem 0;
 }
 
@@ -216,11 +216,11 @@ export default {
 }
 
 .num {
-  color: royalblue;
+  color: #e79450;
 }
 
 .fa-caret-up {
-  color: royalblue;
+  color: #e79450;
   font-size: 21px;
 }
 
@@ -234,17 +234,17 @@ export default {
 
 .link-winner {
   font-size: 23px;
-  color: rgb(11, 138, 85);
+  color: #443800;
   font-weight: bold;
 }
 
 .points {
-  color: royalblue;
+  color: #443800;
   font-size: 17px;
 }
 
 .points-winner {
-  color: royalblue;
+  color: #443800;
   font-size: 23px;
 }
 
