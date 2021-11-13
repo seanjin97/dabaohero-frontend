@@ -108,6 +108,7 @@
                   v-on:click="getKey"
                   @joinSession="getKey"
                   :searchInProgress="searchInProgress"
+                  :noSessionsFound="noSessionsFound"
                 />
               </center>
             </c-flex>
@@ -125,15 +126,6 @@
     <a href="#" class="scroll-top">
       <i class="fas fa-angle-up"></i>
     </a>
-    <!--
-    <c-button v-show="this.$auth.loggedIn" @click="getToken">
-      Get Token
-    </c-button>
-
-    <c-box v-show="this.$auth.loggedIn">{{ 'Access token: ' + token }}</c-box>
-    <c-box v-show="this.$auth.loggedIn">{{
-      'Refresh token: ' + refreshToken
-    }}</c-box> -->
   </div>
 </template>
 
@@ -164,6 +156,7 @@ export default {
       showDabaoerFlow: false,
       isOptionSelected: false,
       searchInProgress: false,
+      noSessionsFound: false,
     };
   },
 
@@ -191,8 +184,13 @@ export default {
       });
       if (data) {
         this.searchInProgress = false;
+        this.searchedSessions = data;
+        if (data.length === 0) {
+          this.noSessionsFound = true;
+        } else {
+          this.noSessionsFound = false;
+        }
       }
-      this.searchedSessions = data;
     },
 
     getKey(x) {
@@ -212,7 +210,6 @@ export default {
           headers: { Authorization: `Bearer ${token}` },
         },
       );
-      console.log(data);
     },
     async createSession() {
       const url = `${process.env.BACKEND_URL}/session/create`;
@@ -229,11 +226,10 @@ export default {
           headers: { Authorization: `Bearer ${token}` },
         },
       );
-      console.log(data);
     },
   },
   async fetch() {
-    this.username = await this.$auth.$storage.getUniversal('username');
+    this.username = this.$store.state.username;
   },
 };
 </script>

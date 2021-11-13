@@ -91,7 +91,7 @@ export default {
   methods: {
     async joinSession() {
       this.apiCalled = true;
-      const username = await this.$auth.$storage.getUniversal('username');
+      const { username } = this.$store.state;
       const url = `${process.env.BACKEND_URL}/session/join`;
       const token = await this.$auth.strategy.token.get();
       const data = await this.$axios.$post(
@@ -107,7 +107,6 @@ export default {
       if (data) {
         this.apiSuccess = true;
       }
-      console.log(data);
     },
   },
   computed: {

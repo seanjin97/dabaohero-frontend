@@ -152,7 +152,6 @@ export default {
         session_code: this.key,
         username: this.username,
       });
-      console.log(data);
     },
     async createSession() {
       const url = `${process.env.BACKEND_URL}/session/create`;
@@ -169,14 +168,13 @@ export default {
           headers: { Authorization: `Bearer ${token}` },
         },
       );
-      console.log(data);
     },
     login() {
       this.$auth.loginWith('auth0');
     },
   },
   async fetch() {
-    this.username = await this.$auth.$storage.getUniversal('username');
+    this.username = this.$store.state.username;
   },
 };
 </script>

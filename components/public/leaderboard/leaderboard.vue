@@ -14,18 +14,23 @@
             <div
               class="person second"
               :key="item.key"
-              v-for="(item, idx) in details"
+              v-for="(item, idx) in users.slice(0, 3)"
             >
               <div class="num" v-if="idx == 1">2</div>
               <i class="fas fa-caret-up" v-if="idx == 1"></i>
               <img :src="randomImage" alt="" class="photo" v-if="idx == 1" />
-              <p class="link" v-if="idx == 1">{{ item.name }}</p>
-              <p class="points" v-if="idx == 1">{{ item.orders }} order(s)</p>
+              <p class="link" v-if="idx == 1">{{ item.key }}</p>
+              <c-badge v-if="idx == 1"
+                >{{ item.rating }} <i class="fas fa-star text-warning"></i
+              ></c-badge>
+              <p class="points" v-if="idx == 1">
+                {{ item.completed_orders }} order(s)
+              </p>
             </div>
             <div
               class="person first"
               :key="item.key"
-              v-for="(item, idx) in details"
+              v-for="(item, idx) in users.slice(0, 3)"
             >
               <div class="num" v-if="idx == 0">1</div>
               <i class="fas fa-crown" v-if="idx == 0"></i>
@@ -35,37 +40,55 @@
                 class="photo main"
                 v-if="idx == 0"
               />
-              <p class="link-winner" v-if="idx == 0">{{ item.name }}</p>
+              <p class="link-winner" v-if="idx == 0">{{ item.key }}</p>
+              <c-badge v-if="idx == 0"
+                >{{ item.rating }} <i class="fas fa-star text-warning"></i
+              ></c-badge>
               <p class="points-winner" v-if="idx == 0">
-                {{ item.orders }} order(s)
+                {{ item.completed_orders }} order(s)
               </p>
             </div>
             <div
               class="person third"
               :key="item.key"
-              v-for="(item, idx) in details"
+              v-for="(item, idx) in users.slice(0, 3)"
             >
               <div class="num" v-if="idx == 2">3</div>
               <i class="fas fa-caret-up" v-if="idx == 2"></i>
               <img :src="randomImage" alt="" class="photo" v-if="idx == 2" />
-              <p class="link" v-if="idx == 2">{{ item.name }}</p>
-              <p class="points" v-if="idx == 2">{{ item.orders }} order(s)</p>
+              <p class="link" v-if="idx == 2">{{ item.key }}</p>
+              <c-badge v-if="idx == 2"
+                >{{ item.rating }} <i class="fas fa-star text-warning"></i
+              ></c-badge>
+              <p class="points" v-if="idx == 2">
+                {{ item.completed_orders }} order(s)
+              </p>
             </div>
           </div>
           <div class="rest mb-5">
             <div class="others flex">
               <div class="rank">
                 <i class="fas fa-caret-up"></i>
-                <p class="num">4</p>
+                <p class="num">{{ getCurrPos + 1 }}</p>
               </div>
               <div
                 class="info flex"
                 :key="item.key"
-                v-for="(item, idx) in details"
+                v-for="(item, idx) in users"
               >
-                <img :src="randomImage" alt="" class="p_img" v-if="idx == 3" />
-                <p class="link" v-if="idx == 3">{{ item.name }}</p>
-                <p class="points" v-if="idx == 3">{{ item.orders }}</p>
+                <img
+                  :src="randomImage"
+                  alt=""
+                  class="p_img"
+                  v-if="idx === getCurrPos"
+                />
+                <p class="link" v-if="idx === getCurrPos">You</p>
+                <c-badge v-if="idx === getCurrPos" mr="4"
+                  >{{ item.rating }} <i class="fas fa-star text-warning"></i
+                ></c-badge>
+                <p class="points" v-if="idx === getCurrPos">
+                  {{ item.completed_orders }} order(s)
+                </p>
               </div>
             </div>
           </div>
@@ -78,11 +101,17 @@
 <script>
 export default {
   name: 'leaderboard',
-  props: ['details'],
+  props: ['users'],
   computed: {
     randomImage() {
       const num = Math.floor(Math.random() * 8 + 1);
       return `https://bootdey.com/img/Content/avatar/avatar${num}.png`;
+    },
+    getCurrPos() {
+      const { username } = this.$store.state;
+
+      const position = this.users.findIndex((user) => user.key === username);
+      return position;
     },
   },
 };
@@ -197,11 +226,13 @@ export default {
   color: black;
   margin-top: -0.3rem;
   font-size: 17px;
+  font-weight: bold;
 }
 
 .link-winner {
   font-size: 23px;
   color: rgb(11, 138, 85);
+  font-weight: bold;
 }
 
 .points {

@@ -35,7 +35,6 @@ export default {
       this.selectedChat = session.key;
     },
     async sendMessage(data) {
-      console.log(data);
       const messageRef = this.$fire.database.ref(`channels/${data.sessionId}`);
       try {
         await messageRef.push({
@@ -48,7 +47,7 @@ export default {
       }
     },
     async endSession() {
-      this.username = await this.$auth.$storage.getUniversal('username');
+      this.username = this.$store.state.username;
       const token = await this.$auth.strategy.token.get();
       const url = `${process.env.BACKEND_URL}/session/complete`;
       const data = await this.$axios.$post(
@@ -74,7 +73,7 @@ export default {
     },
   },
   async fetch() {
-    this.username = await this.$auth.$storage.getUniversal('username');
+    this.username = this.$store.state.username;
     const token = await this.$auth.strategy.token.get();
 
     this.sessions = await this.$axios.$get(

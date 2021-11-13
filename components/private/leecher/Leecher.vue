@@ -44,7 +44,12 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <c-box v-show="noSessionsFound">
+      <c-text fontWeight="bold" m="4">
+        No sessions found near your area, please try again later!
+      </c-text>
+    </c-box>
+    <div class="container" v-show="!noSessionsFound">
       <div class="row">
         <div
           v-if="searchedSessions.length > 0"
@@ -67,7 +72,11 @@ import Session from './Session.vue';
 
 export default {
   name: 'Leecher',
-  props: { searchedSessions: Array, searchInProgress: Boolean },
+  props: {
+    searchedSessions: Array,
+    searchInProgress: Boolean,
+    noSessionsFound: Boolean,
+  },
   components: { Session },
   data() {
     return {

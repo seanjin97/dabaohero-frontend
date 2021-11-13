@@ -77,7 +77,7 @@ export default {
   methods: {
     async createSession() {
       this.apiCalled = true;
-      const username = await this.$auth.$storage.getUniversal('username');
+      const { username } = this.$store.state;
       const token = await this.$auth.strategy.token.get();
       const date = this.field[2].toISOString();
       const url = `${process.env.BACKEND_URL}/session/create`;
@@ -94,7 +94,6 @@ export default {
       if (data) {
         this.apiSuccess = true;
       }
-      console.log(data);
     },
   },
 };

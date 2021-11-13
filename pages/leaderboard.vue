@@ -1,7 +1,7 @@
 <template>
   <div class="mt-3">
     <c-spinner h="100vh" v-if="pageLoading" />
-    <leaderboard v-else :details="user" />
+    <leaderboard v-else :users="users" />
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   components: { leaderboard },
   data() {
     return {
-      user: [],
+      users: [],
       token: '',
       refreshToken: '',
       username: '',
@@ -51,12 +51,9 @@ export default {
       }
       return null;
     },
-    sleep(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    },
   },
   async fetch() {
-    this.username = await this.$auth.$storage.getUniversal('username');
+    this.username = this.$store.state.username;
     const token = await this.$auth.strategy.token.get();
     const data = await this.$axios.$get(
       // url,
@@ -66,7 +63,7 @@ export default {
       },
     );
     if (data) {
-      this.user = this.topFour(data);
+      this.users = data;
       this.pageLoading = false;
     }
   },
