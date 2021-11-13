@@ -41,6 +41,7 @@
                   fw-bold
                   btn-lg
                   px-4
+                  mb-sm-4
                   me-sm-3
                   shadow
                   animate__animated animate__zoomIn
@@ -56,6 +57,7 @@
                   fw-bold
                   btn-lg
                   px-4
+                  mb-4
                   shadow
                   animate__animated animate__zoomIn
                 "
@@ -65,7 +67,7 @@
               </button>
             </div>
           </div>
-          <div class="d-none d-sm-block mt-5">
+          <div class="d-none d-sm-block mt-1">
             <HeroImg />
           </div>
         </div>
@@ -152,6 +154,7 @@ export default {
         session_code: this.key,
         username: this.username,
       });
+      console.log(data);
     },
     async createSession() {
       const url = `${process.env.BACKEND_URL}/session/create`;
@@ -168,6 +171,7 @@ export default {
           headers: { Authorization: `Bearer ${token}` },
         },
       );
+      console.log(data);
     },
     login() {
       this.$auth.loginWith('auth0');

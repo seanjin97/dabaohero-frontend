@@ -5,10 +5,10 @@
       <div class="col-lg-12">
         <div class="card one">
           <div class="header text-center">
-            <h1 class="title text-center">
+            <h1 class="title text-center section-title">
               Leaderboard
             </h1>
-            <h2 class="title text-center">
+            <h2 class="title text-center fs-4">
               Highest Orders Made
             </h2>
             <div></div>
