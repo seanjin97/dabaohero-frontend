@@ -51,7 +51,7 @@
           <div class="col-6 col-lg-3">
             <div class="count-data text-center">
               <h6 class="count h2">{{ userData.orders_requested }}</h6>
-              <p class="m-0px font-w-600">Orders requested</p>
+              <p class="m-0px font-w-600">Orders Requested</p>
             </div>
           </div>
           <div class="col-6 col-lg-3">
@@ -63,7 +63,7 @@
           <div class="col-6 col-lg-3">
             <div class="count-data text-center">
               <h6 class="count h2">{{ active_sessions }}</h6>
-              <p class="m-0px font-w-600">Number of active sessions</p>
+              <p class="m-0px font-w-600">Number of Active Sessions</p>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@ img {
 .about-text h3 {
   font-size: 45px;
   font-weight: 700;
-  margin: 0 0 6px;
+  margin: 0 0 2px;
 }
 @media (max-width: 767px) {
   .about-text h3 {
@@ -127,7 +127,7 @@ img {
 }
 .about-text p mark {
   font-weight: 600;
-  color: #20247b;
+  color: #b97c20;
 }
 
 .about-list {
@@ -137,7 +137,7 @@ img {
   padding: 5px 0;
 }
 .about-list label {
-  color: #20247b;
+  color: #b97c20;
   font-weight: 600;
   width: 88px;
   margin: 0;
@@ -151,7 +151,7 @@ img {
   right: 11px;
   width: 1px;
   height: 12px;
-  background: #20247b;
+  background: #b97c20;
   -moz-transform: rotate(15deg);
   -o-transform: rotate(15deg);
   -ms-transform: rotate(15deg);
@@ -183,7 +183,7 @@ img {
 }
 .about-section .counter .count {
   font-weight: 700;
-  color: #20247b;
+  color: #b97c20;
   margin: 0 0 5px;
 }
 .about-section .counter p {
@@ -206,6 +206,9 @@ mark {
   color: #fc5356;
 }
 .dark-color {
-  color: #20247b;
+  color: #b97c20;
+}
+label::after {
+  content: none !important;
 }
 </style>
