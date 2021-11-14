@@ -40,9 +40,6 @@
       <c-box class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link px-3" href="/home#">Home</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link px-3" href="/home#features">Features</a>
           </li>
           <li class="nav-item">
@@ -53,6 +50,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link px-3" href="/account">Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="/home#faq">Help</a>
           </li>
           <c-box as="li" mr="5" px="3">
             <c-button :_hover="{ color: 'yellow.400' }" @click="logout"

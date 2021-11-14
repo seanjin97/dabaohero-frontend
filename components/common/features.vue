@@ -12,7 +12,7 @@
                     </span>
                 </div>
             </div>
-            <div class="single-head">
+            <div class="container">
                 <div class="row">
 
                     <div class="col-lg-4 col-12">
@@ -50,7 +50,7 @@
                                     <i class="fas fa-comments"></i>
                                 </div>
                                 <h3 class="fs-5">Join a Session</h3>
-                                <p class='fs-6'>Join a nearby session and look for available Dabaoers or view all order requests as a Dabaoer. </p>
+                                <p class='fs-6'>Join a nearby session and look for available Dabao-ers or view order requests. </p>
                         </div>
                         </a>
                     </div>

@@ -45,7 +45,7 @@
           <div class="col-6 col-lg-3">
             <div class="count-data text-center">
               <h6 class="count h2">{{ userData.completed_orders }}</h6>
-              <p class="m-0px font-w-600">Happy Clients</p>
+              <p class="m-0px font-w-600">Orders Fulfilled</p>
             </div>
           </div>
           <div class="col-6 col-lg-3">

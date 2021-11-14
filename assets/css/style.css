@@ -75,7 +75,7 @@ section {
   background: rgb(255, 254, 246);
   background: linear-gradient(
     0deg,
-    rgba(255, 254, 246, 0.873984593837535) 60%,
+    rgba(255, 254, 246, 0.873984593837535) 20%,
     rgba(209, 157, 0, 0.178) 90%
   );
 }
@@ -148,8 +148,8 @@ a.nav-link:hover {
 .features .single-feature .feature-icon {
   width: 80px;
   height: 80px;
-  -webkit-box-shadow: 0 20px 40px #4b370057;
-          box-shadow: 0 20px 40px #e9ca92b6;
+  -webkit-box-shadow: 0 20px 25px #e7a6508e;
+          box-shadow: 0 20px 25px #e7a6508e;
   border-radius: 5px;
   background: linear-gradient(45deg, #ffc107, #e79450);
   display: -webkit-box;
@@ -228,6 +228,12 @@ a.nav-link:hover {
   line-height: 40px;
   position: relative;
   font-weight: 700;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+  position: relative;
+  font-size: 32px;
+  font-weight: 700;
+  color: #4e4039;
 }
 
 .section-title p {
