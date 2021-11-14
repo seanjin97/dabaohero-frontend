@@ -74,7 +74,7 @@
       </div>
     </div>
     <Features />
-
+    <FAQ />
     <Partners />
 
     <a href="#" class="scroll-top">

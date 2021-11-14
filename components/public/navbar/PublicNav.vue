@@ -37,6 +37,9 @@
           <li class="nav-item">
             <a class="nav-link px-3" href="/#features">Features</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="/#faq">Help</a>
+          </li>
           <c-box as="li" mr="5" px="3">
             <c-button :_hover="{ color: 'yellow.400' }" @click="login"
               >Login</c-button

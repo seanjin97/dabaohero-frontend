@@ -33,7 +33,7 @@
                     </div>
                     <div id="faq2" class="collapse" data-bs-parent=".faq-list">
                         <p class="text-muted">
-                            Dabao-ers will be able to use the chat to communicate with all Leechers who have joined the session and get all order details and delivery instructions. <br><br>
+                            Dabao-ers will be able to use the chat feature to communicate with all Leechers who have joined the session and get all order details and delivery instructions. <br><br>
                             Once a session has been ended by the Dabao-er, the session status will become inactive. Leechers can then rate their Dabao-er by navigating to the top right-hand corner of the inactive session.
                         </p>
                     </div>
@@ -78,7 +78,7 @@
                     </div>
                     <div id="faq5" class="collapse" data-bs-parent=".faq-list">
                         <p class="text-muted">
-                            DabaoHero is a non-profit platform that is community-driven, eliminating all fees and charges posed on local hawker businesses when opting for deliveries. This means that there are no marked-up food prices and delivery fees for customers when compared with other delivery platforms.
+                            DabaoHero is a non-profit platform that is community-driven, eliminating any inconvenience and all extra charges posed on our local hawker businesses when providing deliveries. This means that there are no marked-up food prices and delivery fees for customers as well, when compared with other delivery platforms.
                         </p>
                     </div>
                 </li>

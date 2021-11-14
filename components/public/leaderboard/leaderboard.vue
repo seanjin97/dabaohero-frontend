@@ -5,7 +5,7 @@
       <div class="col-lg-12">
         <div class="card one">
           <div class="header text-center">
-            <h1 class="text-center section-title">
+            <h1 class="text-center section-title fw-bold">
               Leaderboard
             </h1>
             <h2 class="text-center fs-4">
@@ -234,7 +234,7 @@ export default {
 
 .link-winner {
   font-size: 23px;
-  color: #443800;
+  color: #745900;
   font-weight: bold;
 }
 
@@ -280,7 +280,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   border-radius: 30px;
-  background: rgba(210, 255, 213, 0.3);
+  background: rgba(255, 248, 210, 0.3);
 }
 
 .info .points {
