@@ -94,6 +94,7 @@
 
 <script>
 import HeroImg from '@/components/common/hero-image.vue';
+import FAQ from '@/components/common/faq.vue';
 import Features from '@/components/common/features.vue';
 import Partners from '@/components/common/partners.vue';
 
@@ -103,6 +104,7 @@ export default {
   components: {
     HeroImg,
     Features,
+    FAQ,
     Partners,
   },
   data() {
