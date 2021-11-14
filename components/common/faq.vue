@@ -43,14 +43,16 @@
                     <div data-bs-toggle="collapse"
                         href="#faq3"
                         class="collapsed question">
-                        How many active sessions can I create or join at the same time?
+                        How do I create or join a session?
                         <i class="fas fa-chevron-right icon-show"></i><i class="fas fa-chevron-down icon-close"></i>
                     </div>
                     <div id="faq3" class="collapse" data-bs-parent=".faq-list">
                         <p class="text-muted">
-                            As a Dabao-er, you can create only one Dabao session to take orders from Leechers.
-                            <br><br>
-                            As a Leecher, you can join as many sessions as you want to place your orders from different Dabao-ers (e.g. for more than one location).
+                            As a Dabao-er, you can create a session to take orders from Leechers by entering the your postal code, food you are ordering, as well as your departure time (Cut-off time for leechers to join your session). <br><br>
+
+                            As a Leecher, you can join a session by first entering your postal code to search for available sessions in your area.<br><br>
+
+                            You can view all active sessions under the Sessions tab.
                         </p>
                     </div>
                 </li>

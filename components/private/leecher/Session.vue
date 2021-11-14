@@ -1,5 +1,5 @@
 <template>
-  <c-box maxW="sm" border-width="1px" rounded="lg" margin="3">
+  <c-box maxW="sm" border-width="2px" rounded="lg" margin="3">
     <c-image :src="require(`../../../assets/Image${randomImage}.jpg`)" />
     <c-text fontWeight="bold" m="4">{{ session.food }}</c-text>
 
